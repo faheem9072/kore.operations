@@ -72,6 +72,7 @@ export default function LightboxModal({
     currentDisplayImage.includes('-portal');
 
   const getScreenTabLabel = (img: string, idx: number) => {
+    if (img.includes('krewx')) return 'Platform Preview';
     if (img.includes('maplefield-influencer')) return 'Influencer License';
     if (img.includes('maplefield-ejari')) return 'Ejari Services';
     if (img.includes('maplefield-import-export')) return 'Import & Export';

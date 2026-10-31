@@ -93,16 +93,20 @@ export const PROJECTS: Project[] = [
   // -----------------------------------------------------------------------
   {
     id: 'krewx-identity',
-    title: 'Krewx Brand Identity',
+    title: 'Krewx — Direct Work & Manpower Platform',
     category: 'design',
-    categoryLabel: 'Logo & Branding',
+    categoryLabel: 'A Product by KORE',
     image: '/work/design/krewx.jpg',
-    description: 'Bold, tech-forward visual identity and logo architecture engineered for modern digital presence, apparel, and corporate branding assets.',
-    client: 'Krewx Innovations',
-    year: '2024',
-    tags: ['Brand Identity', 'Logo System', 'Typography', 'Styleguide'],
-    link: 'https://example.com/krewx',
+    gallery: [
+      '/work/design/krewx.jpg',
+    ],
+    description: 'On-demand manpower and direct workforce web platform engineered by KORE ("A Product by KORE"). Connects verified job seekers and local businesses with daily shifts, role-based hiring, and zero middlemen across all 14 Kerala districts.',
+    client: 'Krewx (A Product by KORE)',
+    year: '2025',
+    tags: ['Krewx', 'Product by KORE', 'Manpower Platform', 'Direct Work', 'Web App', 'Zero Middlemen'],
+    link: 'https://krewx.in',
     featured: true,
+    aspect: 'landscape',
   },
   {
     id: 'findo-identity',
