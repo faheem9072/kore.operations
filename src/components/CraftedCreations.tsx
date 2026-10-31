@@ -28,16 +28,15 @@ export default function CraftedCreations({
     PROJECTS.find((p) => p.id === 'findo-website') || PROJECTS[2],
     PROJECTS.find((p) => p.id === 'krewx-identity') || PROJECTS[3],
     PROJECTS.find((p) => p.id === 'findo-kids-school') || PROJECTS[4],
-    PROJECTS.find((p) => p.id === 'almaniya-poster') || PROJECTS[5],
   ].filter(Boolean);
 
   const row2Projects: Project[] = [
-    PROJECTS.find((p) => p.id === 'maplefield-ejari') || PROJECTS[6] || PROJECTS[0],
-    PROJECTS.find((p) => p.id === 'nalakath-fleet-app') || PROJECTS[7] || PROJECTS[1],
-    PROJECTS.find((p) => p.id === 'maplefield-import-export') || PROJECTS[8] || PROJECTS[2],
-    PROJECTS.find((p) => p.id === 'findo-identity') || PROJECTS[9] || PROJECTS[3],
-    PROJECTS.find((p) => p.id === 'findo-cloth-bag') || PROJECTS[10] || PROJECTS[4],
-    PROJECTS.find((p) => p.id === 'best-smile-clinic') || PROJECTS[11] || PROJECTS[5],
+    PROJECTS.find((p) => p.id === 'maplefield-ejari') || PROJECTS[5] || PROJECTS[0],
+    PROJECTS.find((p) => p.id === 'nalakath-fleet-app') || PROJECTS[6] || PROJECTS[1],
+    PROJECTS.find((p) => p.id === 'maplefield-import-export') || PROJECTS[7] || PROJECTS[2],
+    PROJECTS.find((p) => p.id === 'findo-identity') || PROJECTS[8] || PROJECTS[3],
+    PROJECTS.find((p) => p.id === 'findo-cloth-bag') || PROJECTS[9] || PROJECTS[4],
+    PROJECTS.find((p) => p.id === 'best-smile-clinic') || PROJECTS[10] || PROJECTS[5],
   ].filter(Boolean);
 
   // All filter options for Grid mode
