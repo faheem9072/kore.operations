@@ -2,25 +2,24 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, TrendingUp, ShieldCheck, Zap } from 'lucide-react';
-import { COMPANY_INFO } from '@/data/projects';
+import { CheckCircle2, Bot, Server, Globe2 } from 'lucide-react';
 
 export default function WhoWeAre() {
   const highlights = [
     {
-      icon: <Zap className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Fast Execution',
-      desc: 'Rapid turnaround with zero compromise on precision.',
+      icon: <Bot className="w-5 h-5 text-[#2F8FFF]" />,
+      title: 'Agentic AI Workflows',
+      desc: 'Autonomous multi-agent systems and intelligent operations pipelines.',
     },
     {
-      icon: <ShieldCheck className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Reliable Support',
-      desc: 'Local presence in Chelembra with dedicated direct support.',
+      icon: <Server className="w-5 h-5 text-[#2F8FFF]" />,
+      title: 'Custom MCP Servers',
+      desc: 'Model Context Protocol servers connecting LLMs with private tools & databases.',
     },
     {
-      icon: <TrendingUp className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Growth-Focused',
-      desc: 'Every design and code line is engineered to generate business ROI.',
+      icon: <Globe2 className="w-5 h-5 text-[#2F8FFF]" />,
+      title: 'Next.js & Brand Systems',
+      desc: 'High-speed cloud portals, live fleet web apps, and distinctive brand identities.',
     },
   ];
 
@@ -31,7 +30,7 @@ export default function WhoWeAre() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Story & Philosophy */}
+          {/* Left Column: Direct Positioning */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -44,35 +43,27 @@ export default function WhoWeAre() {
               <span>Who We Are</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white dark:text-white light:text-slate-900 leading-[1.15]">
-              Simplifying Business Operations,{' '}
-              <span className="text-[#2F8FFF]">Amplifying Brand Value.</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
+              AI Automation, Agentic Systems &amp;{' '}
+              <span className="text-[#2F8FFF]">Digital Engineering.</span>
             </h2>
 
-            <p className="text-base sm:text-lg font-medium text-[#5eb0ff]">
-              Delivering world-class digital craft &amp; operational excellence.
-            </p>
-
-            <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-base sm:text-lg leading-relaxed">
-              Based in <strong>Chelembra, Malappuram</strong>, <strong className="text-white dark:text-white light:text-slate-900">KORE</strong> is your comprehensive business &amp; digital solutions partner. We bridge the gap between ambitious Kerala entrepreneurs and world-class design, modern web infrastructure, and operational efficiency.
-            </p>
-
-            <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm sm:text-base leading-relaxed">
-              Instead of juggling multiple freelancers for websites, logo branding, social media posts, and product packaging, KORE provides a unified ecosystem: <em className="text-slate-200 dark:text-slate-200 light:text-slate-800 not-italic font-semibold">&ldquo;One Partner. Multiple Solutions.&rdquo;</em> We handle the digital execution so you can focus on expanding your business.
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+              Based in <strong>Chelembra, Kerala</strong>, <strong>KORE</strong> engineers autonomous agentic workflows, custom Model Context Protocol (MCP) servers, high-performance web platforms, and iconic brand identities.
             </p>
 
             {/* Feature Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               {highlights.map((h, i) => (
                 <div
                   key={i}
-                  className="p-4 rounded-2xl bg-[#0c1224] dark:bg-[#0c1224] light:bg-slate-100 border border-white/5 dark:border-white/5 light:border-slate-200"
+                  className="p-4 rounded-2xl bg-[#0c1224] border border-white/5 hover:border-[#2F8FFF]/30 transition-all"
                 >
                   <div className="mb-2">{h.icon}</div>
-                  <h4 className="text-sm font-bold text-white dark:text-white light:text-slate-900 mb-1">
+                  <h4 className="text-sm font-bold text-white mb-1">
                     {h.title}
                   </h4>
-                  <p className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 leading-normal">
+                  <p className="text-xs text-slate-400 leading-normal">
                     {h.desc}
                   </p>
                 </div>
@@ -80,7 +71,7 @@ export default function WhoWeAre() {
             </div>
           </motion.div>
 
-          {/* Right Column: Brand & Operational Hub Card */}
+          {/* Right Column: Operational Architecture Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -106,8 +97,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Full-Stack Digital Execution</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Web apps, cloud portals, brand identities, and high-conversion ad creatives under one roof.</p>
+                    <h4 className="text-sm font-bold text-white">Agentic AI &amp; Process Automation</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Self-operating agent workflows, reasoning loops, and zero-touch operational pipelines.</p>
                   </div>
                 </div>
 
@@ -116,8 +107,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Direct Client Partnership</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Zero middlemen and no fragmented freelancer friction. Fast, accountable sprints from start to finish.</p>
+                    <h4 className="text-sm font-bold text-white">Custom MCP Server Infrastructure</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Production-grade Model Context Protocol servers connecting LLMs to enterprise databases.</p>
                   </div>
                 </div>
 
@@ -126,8 +117,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Modern Enterprise Tech</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Engineered with high-speed Next.js, responsive Tailwind systems, and cloud databases.</p>
+                    <h4 className="text-sm font-bold text-white">Modern Next.js &amp; Brand Systems</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Fast-loading web applications, real-time fleet apps, and high-impact visual identities.</p>
                   </div>
                 </div>
               </div>
@@ -147,4 +138,3 @@ export default function WhoWeAre() {
     </section>
   );
 }
-

@@ -10,7 +10,8 @@ interface ServicesProps {
 }
 
 interface ServiceTab {
-  id: ProjectCategory;
+  key: string;
+  category: ProjectCategory;
   num: string;
   title: string;
   subtitle: string;
@@ -19,46 +20,70 @@ interface ServiceTab {
 }
 
 export default function Services({ onSelectCategory }: ServicesProps) {
-  // Default active service matching reference
-  const [activeServiceId, setActiveServiceId] = useState<ProjectCategory>('design');
+  // Default active service
+  const [activeServiceKey, setActiveServiceKey] = useState<string>('agentic');
 
   const servicesData: ServiceTab[] = [
     {
-      id: 'design',
+      key: 'agentic',
+      category: 'web',
       num: '01',
-      title: 'BRAND IDENTITY',
-      subtitle: 'Logo Systems & Visual Strategy',
-      color: '#38bdf8',
-      deliverables: ['Logo & Monogram Design', 'Brand Guidelines & Books', 'Corporate Stationery', 'Typography Systems'],
+      title: 'AGENTIC AI & MCP',
+      subtitle: 'Autonomous Workflows & Custom MCP Servers',
+      color: '#2F8FFF',
+      deliverables: [
+        'Agentic AI Workflows',
+        'Custom Model Context Protocol (MCP) Servers',
+        'Autonomous Task Pipelines',
+        'Enterprise Tool-Calling APIs',
+      ],
     },
     {
-      id: 'web',
+      key: 'web',
+      category: 'web',
       num: '02',
       title: 'WEB APPS & ERP',
       subtitle: 'Custom Next.js Systems & Cloud Portals',
-      color: '#2F8FFF',
-      deliverables: ['Academic & Business ERPs', 'Live Fleet Web Apps', 'E-Commerce Portals', 'Responsive UI/UX'],
+      color: '#38bdf8',
+      deliverables: [
+        'Academic & Business ERPs',
+        'Live Fleet Web Apps',
+        'E-Commerce Portals',
+        'Responsive UI/UX Systems',
+      ],
     },
     {
-      id: 'social',
+      key: 'design',
+      category: 'design',
       num: '03',
+      title: 'BRAND IDENTITY',
+      subtitle: 'Logo Systems & Visual Strategy',
+      color: '#60a5fa',
+      deliverables: [
+        'Logo & Monogram Design',
+        'Brand Guidelines & Books',
+        'Corporate Stationery',
+        'Typography Systems',
+      ],
+    },
+    {
+      key: 'social',
+      category: 'social',
+      num: '04',
       title: 'SOCIAL MEDIA CREATIVES',
       subtitle: 'High-Impact Ad Campaigns & Posters',
-      color: '#60a5fa',
-      deliverables: ['Meta Ad Creatives', 'Campaign Posters', 'Social Carousels', 'Event & Launch Assets'],
-    },
-    {
-      id: 'web',
-      num: '04',
-      title: 'OPERATIONS & AUTOMATION',
-      subtitle: 'Workflow Automation & Smart Cloud Systems',
       color: '#818cf8',
-      deliverables: ['Operations Sprints & Audits', 'Workflow Automations', 'Custom Dashboards', 'Enterprise Cloud Integrations'],
+      deliverables: [
+        'Meta Ad Creatives',
+        'Campaign Posters',
+        'Social Carousels',
+        'Event & Launch Assets',
+      ],
     },
   ];
 
-  const handleRowClick = (cat: ProjectCategory) => {
-    setActiveServiceId(cat);
+  const handleRowClick = (key: string) => {
+    setActiveServiceKey(key);
   };
 
   const handleNavigateToWork = (cat: ProjectCategory) => {
@@ -104,19 +129,19 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       {/* Interactive Expandable Banner Rows */}
       <div className="w-full space-y-4">
         {servicesData.map((service) => {
-          const isActive = activeServiceId === service.id;
+          const isActive = activeServiceKey === service.key;
 
           return (
-            <div key={service.id} className="w-full">
+            <div key={service.key} className="w-full">
               {isActive ? (
-                /* ACTIVE STATE: High-Voltage Electric Blue Banner Band without pills */
+                /* ACTIVE STATE: High-Voltage Electric Blue Banner Band */
                 <motion.div
                   layout
                   initial={{ opacity: 0, scaleY: 0.8 }}
                   animate={{ opacity: 1, scaleY: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  onClick={() => handleNavigateToWork(service.id)}
+                  onClick={() => handleNavigateToWork(service.category)}
                   className="relative w-full py-5 sm:py-7 bg-gradient-to-r from-[#1772f4] via-[#2F8FFF] to-[#0ea5e9] shadow-[0_10px_40px_-5px_rgba(47,143,255,0.5)] cursor-pointer overflow-hidden select-none group"
                 >
                   {/* Subtle Shimmer Overlay on Banner */}
@@ -158,7 +183,7 @@ export default function Services({ onSelectCategory }: ServicesProps) {
                 /* INACTIVE STATE: Numbered Bold Outline Typography (Click to Expand) */
                 <motion.div
                   layout
-                  onClick={() => handleRowClick(service.id)}
+                  onClick={() => handleRowClick(service.key)}
                   className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 border-b border-white/10 hover:border-white/25 cursor-pointer transition-all duration-300 group flex items-center justify-between"
                 >
                   <div className="flex items-center gap-4 sm:gap-8">
@@ -194,10 +219,10 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       {/* Deliverables Cards for the Currently Active Service */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         {servicesData
-          .filter((s) => s.id === activeServiceId)
+          .filter((s) => s.key === activeServiceKey)
           .map((activeItem) => (
             <motion.div
-              key={activeItem.id}
+              key={activeItem.key}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
@@ -223,7 +248,7 @@ export default function Services({ onSelectCategory }: ServicesProps) {
               </div>
 
               <button
-                onClick={() => handleNavigateToWork(activeItem.id)}
+                onClick={() => handleNavigateToWork(activeItem.category)}
                 className="w-full md:w-auto px-6 py-3.5 rounded-full bg-[#2F8FFF] hover:bg-[#1a77ea] text-white text-xs font-bold tracking-wider uppercase shadow-lg shadow-[#2F8FFF]/30 flex items-center justify-center gap-2 shrink-0 transition-all hover:scale-105"
               >
                 <span>View {activeItem.title} Projects</span>

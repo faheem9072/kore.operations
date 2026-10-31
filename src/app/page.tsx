@@ -7,7 +7,6 @@ import Marquee from '@/components/Marquee';
 import WhoWeAre from '@/components/WhoWeAre';
 import Services from '@/components/Services';
 import CraftedCreations from '@/components/CraftedCreations';
-import AboutWhyKore from '@/components/AboutWhyKore';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -32,22 +31,19 @@ export default function Home() {
       {/* 2. Scrolling Marquee Strip */}
       <Marquee />
 
-      {/* 3. Who We Are + Stats */}
+      {/* 3. Who We Are: AI Automation, Agentic Workflows & Digital Engineering */}
       <WhoWeAre />
 
-      {/* 4. Services (4 Big Clickable Cards with Interactive Category Linking) */}
+      {/* 4. Services: Interactive Category Linking & AI/MCP Capabilities */}
       <Services onSelectCategory={handleServiceSelect} />
 
-      {/* 5. Crafted Creations (Portfolio with Category Filter Pills & Animated Layout Grid) */}
+      {/* 5. Crafted Creations: Portfolio Showcase & Catalog */}
       <CraftedCreations
         selectedCategory={selectedCategory}
         onSelectCategory={(cat) => setSelectedCategory(cat)}
       />
 
-      {/* 6. About / Why KORE & Process */}
-      <AboutWhyKore />
-
-      {/* 7. Contact (WhatsApp button, Phone, Email, Form) */}
+      {/* 6. Contact (WhatsApp button, Phone, Email, Form) */}
       <Contact />
 
       {/* Footer */}
