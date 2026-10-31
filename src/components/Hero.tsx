@@ -2,10 +2,14 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, MapPin, ChevronDown } from 'lucide-react';
-import { COMPANY_INFO } from '@/data/projects';
+import Starfield from './Starfield';
+import { ProjectCategory } from '@/types';
 
-export default function Hero() {
+interface HeroProps {
+  onSelectCategory?: (category: ProjectCategory) => void;
+}
+
+export default function Hero({ onSelectCategory }: HeroProps) {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -13,121 +17,146 @@ export default function Hero() {
     }
   };
 
+  const servicePills = [
+    { label: 'BRAND IDENTITY', category: 'design' as ProjectCategory, dotColor: '#2F8FFF' },
+    { label: 'WEB DESIGN & ERP', category: 'web' as ProjectCategory, dotColor: '#38bdf8' },
+    { label: 'DIGITAL MARKETING', category: 'social' as ProjectCategory, dotColor: '#60a5fa' },
+    { label: 'PACKAGING DESIGN', category: 'packaging' as ProjectCategory, dotColor: '#818cf8' },
+    { label: 'AI & AUTOMATION', category: 'web' as ProjectCategory, dotColor: '#bae6fd' },
+  ];
+
+  const handlePillClick = (cat: ProjectCategory) => {
+    if (onSelectCategory) {
+      onSelectCategory(cat);
+    }
+    scrollTo('work');
+  };
+
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden"
+      className="relative min-h-[95vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#040711]"
     >
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#2F8FFF]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-[#1a5cb8]/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      {/* 1. Deep Space Twinkling Starfield Background */}
+      <Starfield />
 
-      {/* Subtle Background Grid Overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04] pointer-events-none -z-10"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.7) 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
-        }}
-      />
+      {/* 2. Soft Ambient Cosmic Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#2F8FFF]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-[#0284c7]/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        {/* Top Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex flex-wrap items-center justify-center gap-2 mb-8"
-        >
-          {/* Main Positioning Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0d1428] dark:bg-[#0d1428] light:bg-slate-100 border border-[#2F8FFF]/30 text-xs font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 shadow-sm shadow-[#2F8FFF]/10">
-            <span className="w-2 h-2 rounded-full bg-[#2F8FFF] animate-pulse" />
-            <span className="text-[#2F8FFF] font-bold">KORE</span>
-            <span className="text-slate-400">•</span>
-            <span>{COMPANY_INFO.positioning}</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Big Editorial Multicolored Headline & CTAs */}
+          <div className="lg:col-span-8 space-y-7">
+            {/* Massive Stylized Headline matching Reference */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-1 sm:space-y-2 select-none"
+            >
+              {/* Line 1: Building Brands */}
+              <div className="text-5xl sm:text-7xl md:text-8xl lg:text-[6.2rem] font-bold tracking-tight leading-[1.02]">
+                <span className="text-[#2F8FFF] drop-shadow-[0_0_35px_rgba(47,143,255,0.45)]">
+                  Building
+                </span>{' '}
+                <span className="text-white">Brands</span>
+              </div>
+
+              {/* Line 2: That Shape */}
+              <div className="text-5xl sm:text-7xl md:text-8xl lg:text-[6.2rem] font-bold tracking-tight leading-[1.02]">
+                <span className="text-[#38bdf8] drop-shadow-[0_0_30px_rgba(56,189,248,0.4)]">
+                  That
+                </span>{' '}
+                <span className="text-[#818cf8] drop-shadow-[0_0_30px_rgba(129,140,248,0.35)]">
+                  Shape
+                </span>
+              </div>
+
+              {/* Line 3: Perception */}
+              <div className="text-5xl sm:text-7xl md:text-8xl lg:text-[6.2rem] font-bold tracking-tight leading-[1.02]">
+                <span className="text-[#60a5fa] drop-shadow-[0_0_35px_rgba(96,165,250,0.4)]">
+                  Perception
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Sub-line with Dash: CHELEMBRA • KERALA • EST. 2024 */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="flex items-center gap-3 pt-2"
+            >
+              <div className="w-10 h-0.5 bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
+              <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] text-[#38bdf8] uppercase">
+                CHELEMBRA • KERALA • EST. 2024
+              </span>
+            </motion.div>
+
+            {/* Paragraph Subtext */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="max-w-xl text-sm sm:text-base text-slate-300 font-normal leading-relaxed"
+            >
+              We combine strategy, creativity, and digital innovation to build brands and operational systems that stand out and drive meaningful growth.
+            </motion.p>
+
+            {/* CTA Pill Buttons matching Reference */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
+              {/* START A PROJECT */}
+              <button
+                onClick={() => scrollTo('contact')}
+                className="px-7 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-[#2F8FFF] hover:border-[#2F8FFF] text-white text-xs font-bold tracking-widest uppercase shadow-lg shadow-black/40 hover:shadow-[0_0_25px_rgba(47,143,255,0.45)] hover:-translate-y-0.5 transition-all duration-300"
+              >
+                START A PROJECT
+              </button>
+
+              {/* OUR SERVICES */}
+              <button
+                onClick={() => scrollTo('services')}
+                className="px-7 py-3.5 rounded-full border border-white/15 bg-transparent hover:border-[#38bdf8] hover:text-[#38bdf8] text-slate-300 text-xs font-bold tracking-widest uppercase hover:-translate-y-0.5 transition-all duration-300"
+              >
+                OUR SERVICES
+              </button>
+            </motion.div>
           </div>
 
-          {/* Location Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-slate-100 border border-white/10 dark:border-white/10 light:border-slate-200 text-xs font-medium text-slate-300 dark:text-slate-300 light:text-slate-600">
-            <MapPin className="w-3 h-3 text-[#2F8FFF]" />
-            <span>Chelembra, Malappuram</span>
-          </div>
-        </motion.div>
-
-        {/* Big Bold Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.08] mb-6 uppercase"
-        >
-          <span className="text-white dark:text-white light:text-slate-900 block drop-shadow-sm">
-            BUSINESS, SIMPLIFIED.
-          </span>
-          <span className="bg-gradient-to-r from-[#2F8FFF] via-[#5eb0ff] to-[#2F8FFF] bg-clip-text text-transparent block mt-1">
-            BRANDS, DEFINED.
-          </span>
-        </motion.h1>
-
-        {/* Accent Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-xs sm:text-sm font-bold uppercase text-[#5eb0ff] mb-4 tracking-widest"
-        >
-          Premier Creative &amp; Digital Solutions For High-Growth Brands
-        </motion.p>
-
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 dark:text-slate-300 light:text-slate-600 font-normal leading-relaxed mb-10"
-        >
-          Kerala&apos;s creative and digital solutions partner for branding, design, websites, social media and automation.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
-        >
-          {/* Explore Our Work (Blue Filled) */}
-          <button
-            onClick={() => scrollTo('work')}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#2F8FFF] hover:bg-[#1a77ea] text-white font-bold text-sm tracking-wide shadow-lg shadow-[#2F8FFF]/30 hover:shadow-xl hover:shadow-[#2F8FFF]/45 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 group"
+          {/* Right Column: Vertical Column of Pill Badges */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3.5 pt-4 lg:pt-0"
           >
-            <span>Explore Our Work</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-
-          {/* Hire Us (Dark Outlined) */}
-          <button
-            onClick={() => scrollTo('contact')}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#0a0f1e]/80 dark:bg-[#0a0f1e]/80 light:bg-white text-slate-200 dark:text-slate-200 light:text-slate-800 font-bold text-sm tracking-wide border border-white/20 dark:border-white/20 light:border-slate-300 hover:border-[#2F8FFF]/80 hover:bg-[#0f172a] dark:hover:bg-[#0f172a] light:hover:bg-slate-50 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2"
-          >
-            <Sparkles className="w-4 h-4 text-[#2F8FFF]" />
-            <span>Hire Us</span>
-          </button>
-        </motion.div>
-
-        {/* Bottom subtle scroll cue */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-16 flex flex-col items-center gap-1.5 cursor-pointer text-slate-400 hover:text-white transition-colors"
-          onClick={() => scrollTo('services')}
-        >
-          <span className="text-[11px] uppercase tracking-widest font-semibold">Discover KORE</span>
-          <ChevronDown className="w-4 h-4 animate-bounce" />
-        </motion.div>
+            {servicePills.map((pill, idx) => (
+              <button
+                key={idx}
+                onClick={() => handlePillClick(pill.category)}
+                className="group w-auto flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:border-[#2F8FFF] bg-[#070e1e]/60 hover:bg-[#0c1833] backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_20px_rgba(47,143,255,0.3)] hover:scale-105"
+              >
+                <span
+                  className="w-1.5 h-1.5 rounded-full transition-transform group-hover:scale-150"
+                  style={{
+                    backgroundColor: pill.dotColor,
+                    boxShadow: `0 0 8px ${pill.dotColor}`,
+                  }}
+                />
+                <span className="text-[11px] sm:text-xs font-bold tracking-[0.18em] text-slate-300 group-hover:text-white transition-colors">
+                  {pill.label}
+                </span>
+              </button>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
 }
-

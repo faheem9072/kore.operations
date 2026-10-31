@@ -27,7 +27,7 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section */}
-      <Hero />
+      <Hero onSelectCategory={handleServiceSelect} />
 
       {/* 2. Scrolling Marquee Strip */}
       <Marquee />

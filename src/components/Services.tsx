@@ -1,33 +1,88 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ProjectCategory } from '@/types';
-import { SERVICES } from '@/data/projects';
-import { Globe, Sparkles, Share2, Package, ArrowRight, Check } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 
 interface ServicesProps {
   onSelectCategory: (category: ProjectCategory) => void;
 }
 
+interface ServiceTab {
+  id: ProjectCategory;
+  num: string;
+  title: string;
+  subtitle: string;
+  color: string;
+  pillImage1: string;
+  pillImage2: string;
+  client1: string;
+  client2: string;
+  deliverables: string[];
+}
+
 export default function Services({ onSelectCategory }: ServicesProps) {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Globe':
-        return <Globe className="w-6 h-6 text-[#2F8FFF]" />;
-      case 'Sparkles':
-        return <Sparkles className="w-6 h-6 text-[#2F8FFF]" />;
-      case 'Share2':
-        return <Share2 className="w-6 h-6 text-[#2F8FFF]" />;
-      case 'Package':
-        return <Package className="w-6 h-6 text-[#2F8FFF]" />;
-      default:
-        return <Sparkles className="w-6 h-6 text-[#2F8FFF]" />;
-    }
+  // Default active service matching Image 2
+  const [activeServiceId, setActiveServiceId] = useState<ProjectCategory>('design');
+
+  const servicesData: ServiceTab[] = [
+    {
+      id: 'design',
+      num: '01',
+      title: 'BRAND IDENTITY',
+      subtitle: 'Logo Systems & Visual Brand Strategy',
+      color: '#38bdf8',
+      pillImage1: '/work/design/krewx.jpg',
+      pillImage2: '/work/design/findo-branding.jpg',
+      client1: 'Krewx',
+      client2: 'Findo',
+      deliverables: ['Logo & Monogram Design', 'Brand Guidelines & Books', 'Corporate Stationery', 'Typography Systems'],
+    },
+    {
+      id: 'web',
+      num: '02',
+      title: 'WEB APPS & ERP',
+      subtitle: 'Custom Next.js Systems & Cloud Portals',
+      color: '#2F8FFF',
+      pillImage1: '/work/web/darul-irshad-attendance.jpg',
+      pillImage2: '/work/web/nalakath-fleet.jpg',
+      client1: 'Darul Irshad',
+      client2: 'Nalakath Fleet',
+      deliverables: ['Academic & Business ERPs', 'Live Fleet Web Apps', 'E-Commerce Portals', 'Responsive UI/UX'],
+    },
+    {
+      id: 'social',
+      num: '03',
+      title: 'SOCIAL MEDIA CREATIVES',
+      subtitle: 'High-Impact Ad Campaigns & Posters',
+      color: '#60a5fa',
+      pillImage1: '/work/social/maplefield-influencer.jpg',
+      pillImage2: '/work/social/maplefield-ejari.jpg',
+      client1: 'MapleField UAE',
+      client2: 'Ejari Campaign',
+      deliverables: ['Meta Ad Creatives', 'Campaign Posters', 'Social Carousels', 'Event & Launch Assets'],
+    },
+    {
+      id: 'packaging',
+      num: '04',
+      title: 'PACKAGING DESIGN',
+      subtitle: 'Physical Product Brilliance & Print Artworks',
+      color: '#818cf8',
+      pillImage1: '/work/packaging/findo-kids.jpg',
+      pillImage2: '/work/packaging/findo-cloth-bag.jpg',
+      client1: 'Findo STEM Box',
+      client2: 'Eco Cloth Bag',
+      deliverables: ['Box Architecture & Cartons', 'Eco Cloth Bags & Pouches', 'Label & Tag Artworks', 'Print Die Lines'],
+    },
+  ];
+
+  const handleRowClick = (cat: ProjectCategory) => {
+    setActiveServiceId(cat);
   };
 
-  const handleServiceClick = (category: ProjectCategory) => {
-    onSelectCategory(category);
+  const handleNavigateToWork = (cat: ProjectCategory) => {
+    onSelectCategory(cat);
     const workSection = document.getElementById('work');
     if (workSection) {
       workSection.scrollIntoView({ behavior: 'smooth' });
@@ -35,20 +90,23 @@ export default function Services({ onSelectCategory }: ServicesProps) {
   };
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-[#070b17] dark:bg-[#070b17] light:bg-slate-50/50">
-      {/* Background Glow */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2F8FFF]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
+    <section id="services" className="py-24 relative overflow-hidden bg-[#040711]">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#2F8FFF]/10 rounded-full blur-[180px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        {/* Section Header matching Image 2 */}
+        <div className="text-left max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0e172e] border border-[#2F8FFF]/30 text-xs font-bold text-[#5eb0ff] uppercase tracking-wider mb-4"
+            className="flex items-center gap-3 mb-3"
           >
-            <span>What We Do</span>
+            <div className="w-8 h-0.5 bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
+            <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.22em] text-[#38bdf8] uppercase">
+              OUR EXPERTISE
+            </span>
           </motion.div>
 
           <motion.h2
@@ -56,93 +114,162 @@ export default function Services({ onSelectCategory }: ServicesProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-black tracking-tight text-white dark:text-white light:text-slate-900 leading-tight mb-4"
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight"
           >
-            Engineered For Impact.{' '}
-            <span className="text-[#2F8FFF]">Built For Results.</span>
+            What <span className="text-[#2F8FFF] drop-shadow-[0_0_30px_rgba(47,143,255,0.4)]">We Do</span>
           </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm sm:text-base leading-relaxed"
-          >
-            Click any service card below to instantly view corresponding live client projects and case studies.
-          </motion.p>
         </div>
+      </div>
 
-        {/* 4 Big Clickable Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {SERVICES.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => handleServiceClick(service.id)}
-              className="group relative cursor-pointer rounded-3xl p-7 sm:p-9 bg-[#0c1224] dark:bg-[#0c1224] light:bg-white border border-white/10 dark:border-white/10 light:border-slate-200 hover:border-[#2F8FFF]/60 hover-card-glow transition-all duration-300 flex flex-col justify-between"
-            >
-              {/* Corner Ambient Glow on Card Hover */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-[#2F8FFF]/10 rounded-full blur-2xl group-hover:bg-[#2F8FFF]/20 transition-all pointer-events-none" />
+      {/* Interactive Expandable Banner Rows (Matching Image 2 Reference) */}
+      <div className="w-full space-y-4">
+        {servicesData.map((service) => {
+          const isActive = activeServiceId === service.id;
 
-              <div>
-                {/* Header: Icon & Badge */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#121c38] dark:bg-[#121c38] light:bg-blue-50 border border-[#2F8FFF]/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#2F8FFF] transition-all duration-300">
-                    <div className="group-hover:text-white transition-colors">
-                      {getIcon(service.iconName)}
-                    </div>
+          return (
+            <div key={service.id} className="w-full">
+              {isActive ? (
+                /* ACTIVE STATE: High-Voltage Electric Blue Banner Band */
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scaleY: 0.8 }}
+                  animate={{ opacity: 1, scaleY: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={() => handleNavigateToWork(service.id)}
+                  className="relative w-full py-5 sm:py-7 bg-gradient-to-r from-[#1772f4] via-[#2F8FFF] to-[#0ea5e9] shadow-[0_10px_40px_-5px_rgba(47,143,255,0.5)] cursor-pointer overflow-hidden select-none group"
+                >
+                  {/* Subtle Shimmer Overlay on Banner */}
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+                  {/* Continuous Horizontal Ticker with Embedded Project Thumbnail Pills */}
+                  <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+                    {[...Array(3)].map((_, repIdx) => (
+                      <div
+                        key={repIdx}
+                        className="flex items-center gap-6 sm:gap-10 shrink-0 pr-6 sm:pr-10"
+                      >
+                        {/* Title text in Bold Black/Dark Navy */}
+                        <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-[#060b18] tracking-tight">
+                          {service.title}
+                        </span>
+
+                        {/* Pill Thumbnail 1 */}
+                        <div className="h-10 sm:h-14 px-3 sm:px-4 rounded-full bg-[#060b18] border border-black/30 flex items-center gap-2.5 shadow-lg shrink-0">
+                          <img
+                            src={service.pillImage1}
+                            alt=""
+                            className="w-7 h-7 sm:w-10 sm:h-10 rounded-full object-cover border border-white/20"
+                          />
+                          <span className="text-white text-xs sm:text-sm font-bold tracking-wider">
+                            {service.client1}
+                          </span>
+                        </div>
+
+                        {/* Repeated Title text */}
+                        <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-[#060b18] tracking-tight">
+                          {service.title}
+                        </span>
+
+                        {/* Card Thumbnail 2 */}
+                        <div className="h-10 sm:h-14 px-3 sm:px-4 rounded-2xl bg-[#060b18] border border-black/30 flex items-center gap-2.5 shadow-lg shrink-0">
+                          <img
+                            src={service.pillImage2}
+                            alt=""
+                            className="w-10 h-7 sm:w-14 sm:h-10 rounded-xl object-cover border border-white/20"
+                          />
+                          <span className="text-[#38bdf8] text-xs sm:text-sm font-bold tracking-wider">
+                            {service.client2}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
-                  <span className="text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-white/5 dark:bg-white/5 light:bg-slate-100 border border-white/10 dark:border-white/10 light:border-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-600 group-hover:border-[#2F8FFF]/40 group-hover:text-[#5eb0ff] transition-colors">
-                    {service.badge}
-                  </span>
-                </div>
-
-                {/* Service Title & Subtitle */}
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white dark:text-white light:text-slate-900 group-hover:text-[#2F8FFF] transition-colors mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#5eb0ff] mb-4">
-                  {service.subtitle}
-                </p>
-
-                {/* Description */}
-                <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                {/* Deliverables List */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
-                  {service.deliverables.map((item, dIdx) => (
-                    <div
-                      key={dIdx}
-                      className="flex items-center gap-2 text-xs text-slate-300 dark:text-slate-300 light:text-slate-700"
+                  {/* Floating Click Cue Pill on Top-Right for Desktop */}
+                  <div className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 items-center gap-2 px-4 py-2 rounded-full bg-[#060b18] text-white text-xs font-bold shadow-xl border border-white/20 z-10">
+                    <span>View Projects</span>
+                    <ArrowUpRight className="w-4 h-4 text-[#38bdf8]" />
+                  </div>
+                </motion.div>
+              ) : (
+                /* INACTIVE STATE: Numbered Bold Outline Typography (Click to Expand) */
+                <motion.div
+                  layout
+                  onClick={() => handleRowClick(service.id)}
+                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 border-b border-white/10 hover:border-white/25 cursor-pointer transition-all duration-300 group flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-4 sm:gap-8">
+                    <span
+                      className="text-sm sm:text-base font-mono font-black"
+                      style={{ color: service.color }}
                     >
-                      <div className="w-4 h-4 rounded-full bg-[#2F8FFF]/20 flex items-center justify-center shrink-0">
-                        <Check className="w-2.5 h-2.5 text-[#2F8FFF]" />
-                      </div>
-                      <span className="truncate">{item}</span>
+                      {service.num}
+                    </span>
+                    <h3
+                      className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight transition-all duration-300 group-hover:translate-x-2"
+                      style={{ color: service.color }}
+                    >
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  <div className="hidden md:flex items-center gap-3">
+                    <span className="text-xs font-medium text-slate-400 group-hover:text-white transition-colors">
+                      {service.subtitle}
+                    </span>
+                    <div className="w-8 h-8 rounded-full border border-white/10 group-hover:border-[#2F8FFF] group-hover:bg-[#2F8FFF]/15 flex items-center justify-center transition-all">
+                      <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white" />
                     </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Deliverables Cards for the Currently Active Service */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        {servicesData
+          .filter((s) => s.id === activeServiceId)
+          .map((activeItem) => (
+            <motion.div
+              key={activeItem.id}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="p-6 sm:p-8 rounded-3xl bg-[#070e20] border border-white/10 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+            >
+              <div>
+                <span className="text-[11px] font-mono font-bold tracking-widest text-[#38bdf8] uppercase">
+                  DELIVERABLES &amp; CAPABILITIES
+                </span>
+                <h4 className="text-lg sm:text-xl font-bold text-white mt-1 mb-3">
+                  {activeItem.subtitle}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {activeItem.deliverables.map((del, dIdx) => (
+                    <span
+                      key={dIdx}
+                      className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-300"
+                    >
+                      {del}
+                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Bottom Interactive Trigger Banner */}
-              <div className="pt-4 border-t border-white/5 dark:border-white/5 light:border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-[#2F8FFF] transition-colors">
-                <span className="tracking-wide">Explore {service.title} Projects</span>
-                <div className="w-8 h-8 rounded-full bg-white/5 dark:bg-white/5 light:bg-slate-100 flex items-center justify-center group-hover:bg-[#2F8FFF] group-hover:text-white transition-all transform group-hover:translate-x-1">
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
+              <button
+                onClick={() => handleNavigateToWork(activeItem.id)}
+                className="w-full md:w-auto px-6 py-3.5 rounded-full bg-[#2F8FFF] hover:bg-[#1a77ea] text-white text-xs font-bold tracking-wider uppercase shadow-lg shadow-[#2F8FFF]/30 flex items-center justify-center gap-2 shrink-0 transition-all hover:scale-105"
+              >
+                <span>View {activeItem.title} Projects</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
             </motion.div>
           ))}
-        </div>
       </div>
     </section>
   );
 }
-
