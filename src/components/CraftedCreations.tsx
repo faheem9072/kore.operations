@@ -43,14 +43,18 @@ export default function CraftedCreations({
     setImageErrors((prev) => ({ ...prev, [id]: true }));
   };
 
-  const renderProjectCard = (project: Project) => {
+  const renderProjectCard = (project: Project, isGrid: boolean = false) => {
     const hasError = imageErrors[project.id];
 
     return (
       <div
         key={project.id}
         onClick={() => setActiveModalProject(project)}
-        className="group relative w-[280px] sm:w-[350px] md:w-[390px] aspect-[4/5] rounded-[28px] overflow-hidden cursor-pointer border border-white/10 hover:border-[#2F8FFF] shadow-2xl bg-[#090e1f] transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_20px_45px_-10px_rgba(47,143,255,0.4)] shrink-0 select-none"
+        className={`group relative ${
+          isGrid
+            ? 'w-full max-w-[390px]'
+            : 'w-[250px] sm:w-[340px] md:w-[390px] shrink-0'
+        } aspect-[4/5] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer border border-white/10 hover:border-[#2F8FFF] shadow-2xl bg-[#090e1f] transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_20px_45px_-10px_rgba(47,143,255,0.4)] select-none`}
       >
         {!hasError ? (
           <img
@@ -74,8 +78,8 @@ export default function CraftedCreations({
         )}
 
         {/* Category Badge Pill on Top Right */}
-        <div className="absolute top-4 right-4 z-10">
-          <span className="px-3.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[11px] font-bold text-white shadow-md">
+        <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10">
+          <span className="px-3 py-1 sm:px-3.5 sm:py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 text-[10px] sm:text-[11px] font-bold text-white shadow-md">
             {project.categoryLabel}
           </span>
         </div>
@@ -84,16 +88,16 @@ export default function CraftedCreations({
         <div className="absolute inset-0 bg-[#2F8FFF]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
         {/* Gradient Bottom Info Bar */}
-        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-[#040711] via-[#040711]/85 to-transparent flex flex-col justify-end">
-          <span className="text-[10px] font-mono font-bold tracking-widest text-[#38bdf8] uppercase mb-1 drop-shadow-sm">
+        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-[#040711] via-[#040711]/90 to-transparent flex flex-col justify-end">
+          <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-widest text-[#38bdf8] uppercase mb-1 drop-shadow-sm">
             {project.client}
           </span>
-          <h3 className="text-lg sm:text-xl font-extrabold text-white line-clamp-1 group-hover:text-[#2F8FFF] transition-colors drop-shadow-md">
+          <h3 className="text-base sm:text-xl font-extrabold text-white line-clamp-1 group-hover:text-[#2F8FFF] transition-colors drop-shadow-md">
             {project.title}
           </h3>
-          <div className="flex items-center gap-1.5 mt-2 text-xs font-bold text-[#5eb0ff] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+          <div className="flex items-center gap-1.5 mt-1.5 sm:mt-2 text-xs font-bold text-[#5eb0ff] opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transform sm:translate-y-2 sm:group-hover:translate-y-0 transition-all duration-300">
             <span>View Project</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </div>
         </div>
       </div>
@@ -214,7 +218,7 @@ export default function CraftedCreations({
                   transition={{ duration: 0.35, delay: index * 0.05 }}
                   className="w-full flex justify-center"
                 >
-                  {renderProjectCard(project)}
+                  {renderProjectCard(project, true)}
                 </motion.div>
               ))}
             </AnimatePresence>

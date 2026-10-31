@@ -163,7 +163,7 @@ export default function LightboxModal({
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative w-full max-w-4xl bg-[#0b1122] dark:bg-[#0b1122] light:bg-white border border-white/10 dark:border-white/10 light:border-slate-200 rounded-3xl overflow-hidden shadow-2xl z-10 my-auto"
+          className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-[#0b1122] dark:bg-[#0b1122] light:bg-white border border-white/10 dark:border-white/10 light:border-slate-200 rounded-3xl shadow-2xl z-10 my-auto custom-scrollbar"
         >
           {/* Top Control Bar */}
           <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
@@ -270,16 +270,16 @@ export default function LightboxModal({
 
             {/* Gallery Thumbnail Selector Strip if Multiple Screenshots */}
             {currentGallery.length > 1 && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-lg">
-                <Layers className="w-3.5 h-3.5 text-[#5eb0ff]" />
-                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-300 mr-1 hidden sm:inline">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 shadow-lg max-w-[92vw] overflow-x-auto">
+                <Layers className="w-3.5 h-3.5 text-[#5eb0ff] shrink-0" />
+                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-300 mr-1 hidden sm:inline shrink-0">
                   Views:
                 </span>
                 {currentGallery.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setGalleryIndex(idx)}
-                    className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all ${
+                    className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all shrink-0 whitespace-nowrap ${
                       galleryIndex === idx
                         ? 'bg-[#2F8FFF] text-white shadow-sm shadow-[#2F8FFF]/50 scale-105'
                         : 'bg-white/10 text-slate-300 hover:bg-white/20'
