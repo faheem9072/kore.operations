@@ -8,14 +8,14 @@ import { Project, ServiceItem } from '@/types';
  * below and fill in the details.
  *
  * Categories allowed:
- *   - 'web'       : Web Design & Development / Web Apps
+ *   - 'web'       : Web Design & Development / Web Apps / ERP
  *   - 'design'    : Logo & Visual Identity Design
  *   - 'social'    : Social Media & Marketing Creatives
  *   - 'packaging' : Packaging & Physical Goods Design
  *
  * Images:
  *   Place your images in: /public/work/[category]/[filename].jpg
- *   e.g. /work/web/nalakath-fleet.jpg
+ *   e.g. /work/web/darul-irshad.svg
  * =========================================================================
  */
 
@@ -28,8 +28,28 @@ export const CATEGORIES = [
 
 export const PROJECTS: Project[] = [
   // -----------------------------------------------------------------------
-  // 1. WEB DESIGN & WEB APPS
+  // 1. WEB DESIGN, WEB APPS & ERP SYSTEMS
   // -----------------------------------------------------------------------
+  {
+    id: 'darul-irshad-erp',
+    title: 'Darul Irshad School of Excellence ERP',
+    category: 'web',
+    categoryLabel: 'Academic Cloud ERP',
+    image: '/work/web/darul-irshad.svg',
+    gallery: [
+      '/work/web/darul-irshad.svg',
+      '/work/web/darul-irshad-attendance.jpg',
+      '/work/web/darul-irshad-portal.jpg',
+    ],
+    description: 'A comprehensive, cloud-native School Management & Academic ERP engineered for Darul Irshad School of Excellence (DISE 2026). Featuring digital attendance registers, role-based faculty access control (RBAC), and unified parent/student notice & timetable portals.',
+    descriptionMl: 'ദാറുൽ ഇർഷാദ് സ്കൂൾ ഓഫ് എക്സലൻസിനായി (DISE 2026) കോർ (KORE) വികസിപ്പിച്ച സമഗ്ര സ്കൂൾ ഇആർപി സിസ്റ്റം. ഡിജിറ്റൽ അറ്റൻഡൻസ് രജിസ്റ്റർ, ഫാക്കൽറ്റി ലോഗിൻ, പാരന്റ്സ് & സ്റ്റുഡന്റ്സ് പോർട്ടൽ എന്നിവ ഉൾക്കൊള്ളുന്നു.',
+    client: 'Darul Irshad School of Excellence',
+    year: '2026',
+    tags: ['School ERP', 'DISE 2026', 'Attendance System', 'Parent Portal', 'Next.js', 'RBAC'],
+    link: 'https://example.com/darul-irshad',
+    featured: true,
+    aspect: 'landscape',
+  },
   {
     id: 'nalakath-fleet-app',
     title: 'Nalakath Logistics — Fleet Management',
@@ -49,20 +69,6 @@ export const PROJECTS: Project[] = [
     link: 'https://nalakathlogistics.com',
     featured: true,
     aspect: 'portrait',
-  },
-  {
-    id: 'darul-irshad-erp',
-    title: 'Darul Irshad ERP',
-    category: 'web',
-    categoryLabel: 'Website & Systems',
-    image: '/work/web/darul-irshad.jpg',
-    description: 'A comprehensive, cloud-based School Management and Student Information ERP system built with responsive dashboards, real-time fee tracking, and academic reporting.',
-    descriptionMl: 'സ്കൂൾ മാനേജ്‌മെന്റ്, അക്കാദമിക് വിവരങ്ങൾ, ഫീസ് ട്രാക്കിംഗ് എന്നിവ സജ്ജീകരിച്ച സമ്പൂർണ്ണ ക്ലൗഡ് ഇആർപി സിസ്റ്റം.',
-    client: 'Darul Irshad Islamic Academy',
-    year: '2025',
-    tags: ['ERP System', 'UI/UX Design', 'Next.js', 'Dashboard'],
-    link: 'https://example.com/darul-irshad',
-    featured: true,
   },
   {
     id: 'findo-website',
@@ -179,12 +185,12 @@ export const PROJECTS: Project[] = [
 export const SERVICES: ServiceItem[] = [
   {
     id: 'web',
-    title: 'Web Design & Apps',
+    title: 'Web Design, Apps & ERP',
     subtitle: 'High Performance & Conversion',
     description: 'Custom web apps, real-time fleet operations portals, and intuitive school/business ERP systems crafted with cutting-edge speed, SEO, and responsiveness.',
     iconName: 'Globe',
     badge: 'Digital Flagship',
-    deliverables: ['Fleet Management & Web Apps', 'Custom Next.js & React Systems', 'School / Business ERPs', 'Mobile-First UI/UX'],
+    deliverables: ['School & Business ERPs', 'Fleet Management & Web Apps', 'Custom Next.js & React Systems', 'Mobile-First UI/UX'],
   },
   {
     id: 'design',

@@ -60,6 +60,23 @@ export default function LightboxModal({
 
   const currentDisplayImage = currentGallery[galleryIndex] || project.image;
 
+  const isCurrentImagePortrait =
+    project.aspect === 'portrait' ||
+    currentDisplayImage.includes('-attendance') ||
+    currentDisplayImage.includes('-portal') ||
+    currentDisplayImage.includes('-fleet') ||
+    currentDisplayImage.includes('-login');
+
+  const getScreenTabLabel = (img: string, idx: number) => {
+    if (img.includes('-attendance')) return 'Attendance';
+    if (img.includes('-portal')) return 'Parent Portal';
+    if (img.endsWith('.svg') || img.includes('darul-irshad')) return 'Studio Showcase';
+    if (img.includes('-fleet')) return 'Live Ops';
+    if (img.includes('-login')) return 'Login';
+    if (img.includes('-splash')) return 'Splash';
+    return `Screen ${idx + 1}`;
+  };
+
   const handleNext = () => {
     if (!hasMultiple) return;
     const nextIdx = (currentIndex + 1) % projectsList.length;
@@ -173,9 +190,9 @@ export default function LightboxModal({
           )}
 
           {/* Main Visual Display */}
-          <div className="relative w-full aspect-video min-h-[340px] sm:min-h-[440px] bg-[#060a16] overflow-hidden flex items-center justify-center">
+          <div className="relative w-full aspect-video min-h-[340px] sm:min-h-[460px] bg-[#060a16] overflow-hidden flex items-center justify-center">
             {!imageError ? (
-              project.aspect === 'portrait' ? (
+              isCurrentImagePortrait ? (
                 <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#090e1f] to-[#04060c] p-4 sm:p-6">
                   {/* Ambient soft glow backdrop */}
                   <img
@@ -183,23 +200,32 @@ export default function LightboxModal({
                     alt=""
                     className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-125 pointer-events-none"
                   />
-                  {/* Centered Device Showcase */}
+                  {/* Centered Device Showcase with Titanium Edge & Top Bar */}
                   <div className="relative z-10 h-full max-h-[420px] sm:max-h-[500px] flex items-center justify-center">
-                    <img
-                      src={currentDisplayImage}
-                      alt={project.title}
-                      onError={() => setImageError(true)}
-                      className="h-full w-auto max-w-[85vw] object-contain rounded-2xl shadow-2xl border border-white/20 transition-all duration-300"
-                    />
+                    <div className="relative h-full max-h-[420px] sm:max-h-[500px] rounded-[32px] p-2 bg-[#121826] border-2 border-[#2a3854] shadow-2xl shadow-black/80 flex flex-col items-center">
+                      {/* Top Island Bar */}
+                      <div className="w-24 h-4 bg-black rounded-full mb-1 flex items-center justify-center gap-1.5 shrink-0">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e293b]" />
+                        <span className="w-1 h-1 rounded-full bg-[#2F8FFF]" />
+                      </div>
+                      <img
+                        src={currentDisplayImage}
+                        alt={project.title}
+                        onError={() => setImageError(true)}
+                        className="h-[calc(100%-20px)] w-auto max-w-[80vw] object-contain rounded-[24px] overflow-hidden"
+                      />
+                    </div>
                   </div>
                 </div>
               ) : (
-                <img
-                  src={currentDisplayImage}
-                  alt={project.title}
-                  onError={() => setImageError(true)}
-                  className="w-full h-full object-cover object-center"
-                />
+                <div className="w-full h-full flex items-center justify-center bg-[#070b16] p-2">
+                  <img
+                    src={currentDisplayImage}
+                    alt={project.title}
+                    onError={() => setImageError(true)}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               )
             ) : (
               // Fallback Artwork
@@ -220,22 +246,22 @@ export default function LightboxModal({
 
             {/* Gallery Thumbnail Selector Strip if Multiple Screenshots */}
             {currentGallery.length > 1 && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-lg">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 shadow-lg">
                 <Layers className="w-3.5 h-3.5 text-[#5eb0ff]" />
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-300 mr-1 hidden sm:inline">
-                  Screens:
+                  Views:
                 </span>
                 {currentGallery.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setGalleryIndex(idx)}
-                    className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
+                    className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all ${
                       galleryIndex === idx
                         ? 'bg-[#2F8FFF] text-white shadow-sm shadow-[#2F8FFF]/50 scale-105'
                         : 'bg-white/10 text-slate-300 hover:bg-white/20'
                     }`}
                   >
-                    {idx === 0 ? 'Live Ops' : idx === 1 ? 'Login' : 'Splash'}
+                    {getScreenTabLabel(img, idx)}
                   </button>
                 ))}
               </div>
