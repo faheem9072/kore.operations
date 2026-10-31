@@ -21,9 +21,8 @@ import { Project, ServiceItem } from '@/types';
 
 export const CATEGORIES = [
   { id: 'web', label: 'Website Design' },
-  { id: 'design', label: 'Logo Design' },
+  { id: 'design', label: 'Product & Brand Design' },
   { id: 'social', label: 'Social Media Designs' },
-  { id: 'packaging', label: 'Packaging Design' },
 ] as const;
 
 export const PROJECTS: Project[] = [
@@ -108,19 +107,6 @@ export const PROJECTS: Project[] = [
     featured: true,
     aspect: 'landscape',
   },
-  {
-    id: 'findo-identity',
-    title: 'Findo Brand Identity',
-    category: 'design',
-    categoryLabel: 'Logo & Branding',
-    image: '/work/design/findo-branding.jpg',
-    description: 'Minimalist brand system, signature monogram, color theory, and complete corporate stationery guidelines crafted for scalable recognition.',
-    client: 'Findo Global',
-    year: '2024',
-    tags: ['Visual Identity', 'Monogram', 'Brand Guidelines'],
-    link: 'https://example.com/findo-brand',
-    featured: true,
-  },
 
   // -----------------------------------------------------------------------
   // 3. SOCIAL MEDIA DESIGN
@@ -181,53 +167,6 @@ export const PROJECTS: Project[] = [
     link: 'https://maplefield.ae',
     featured: true,
     aspect: 'portrait',
-  },
-  {
-    id: 'best-smile-clinic',
-    title: 'Best Smile Dental Clinic Posters',
-    category: 'social',
-    categoryLabel: 'Social Media Design',
-    image: '/work/social/best-smile.jpg',
-    description: 'Engaging, trust-building healthcare creatives and awareness campaign posters tailored to generate appointment inquiries across Kerala.',
-    client: 'Best Smile Dental Care',
-    year: '2024',
-    tags: ['Healthcare', 'Poster Design', 'Social Creatives', 'Visual Storytelling'],
-    link: 'https://example.com/best-smile',
-    featured: true,
-  },
-
-  // -----------------------------------------------------------------------
-  // 4. PACKAGING DESIGN
-  // -----------------------------------------------------------------------
-  {
-    id: 'findo-cloth-bag',
-    title: 'Findo Packaging — Premium Cloth Bag',
-    category: 'packaging',
-    categoryLabel: 'Packaging Design',
-    image: '/work/packaging/findo-cloth-bag.jpg',
-    description: 'Sustainable, eco-conscious retail cloth bag packaging featuring custom pattern typography and durable organic aesthetic.',
-    client: 'Findo Lifestyle',
-    year: '2025',
-    tags: ['Eco Packaging', 'Cloth Bag', 'Retail Merchandise', 'Print Production'],
-    link: 'https://example.com/findo-packaging',
-    featured: true,
-  },
-  {
-    id: 'findo-kids-school',
-    title: 'Findo Kids & STEM Toys Packaging',
-    category: 'packaging',
-    categoryLabel: 'Packaging Design',
-    image: '/work/packaging/findo-kids.jpg',
-    gallery: [
-      '/work/packaging/findo-kids.jpg',
-      '/work/web/findo-hero.jpg',
-    ],
-    description: 'Vibrant, child-friendly product packaging and retail box designs created for Findo educational series — including 3D Magnetic STEM Sticks & Balls, EVA Number Puzzles, and creative vanity play sets.',
-    client: 'Findo Kids Division',
-    year: '2025',
-    tags: ['Product Packaging', 'STEM Toys', 'Kids Range', 'Box Design', 'Retail Impact'],
-    link: 'https://findokids.store',
-    featured: true,
   },
 ];
 

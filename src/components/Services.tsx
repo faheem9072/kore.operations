@@ -48,12 +48,12 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       deliverables: ['Meta Ad Creatives', 'Campaign Posters', 'Social Carousels', 'Event & Launch Assets'],
     },
     {
-      id: 'packaging',
+      id: 'web',
       num: '04',
-      title: 'PACKAGING DESIGN',
-      subtitle: 'Physical Product Brilliance & Print Artworks',
+      title: 'OPERATIONS & AUTOMATION',
+      subtitle: 'Workflow Automation & Smart Cloud Systems',
       color: '#818cf8',
-      deliverables: ['Box Architecture & Cartons', 'Eco Cloth Bags & Pouches', 'Label & Tag Artworks', 'Print Die Lines'],
+      deliverables: ['Operations Sprints & Audits', 'Workflow Automations', 'Custom Dashboards', 'Enterprise Cloud Integrations'],
     },
   ];
 

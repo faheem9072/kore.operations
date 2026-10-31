@@ -80,34 +80,67 @@ export default function WhoWeAre() {
             </div>
           </motion.div>
 
-          {/* Right Column: Stats Grid */}
+          {/* Right Column: Brand & Operational Hub Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 grid grid-cols-2 gap-4"
+            className="lg:col-span-5 relative"
           >
-            {COMPANY_INFO.stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="group relative p-6 sm:p-7 rounded-3xl bg-[#0d1428] dark:bg-[#0d1428] light:bg-white border border-white/10 dark:border-white/10 light:border-slate-200 hover:border-[#2F8FFF]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#2F8FFF]/15 overflow-hidden"
-              >
-                {/* Glow highlight on card hover */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#2F8FFF]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform pointer-events-none" />
+            <div className="relative p-8 sm:p-9 rounded-3xl bg-[#0d1428] border border-white/10 shadow-2xl shadow-black/60 overflow-hidden">
+              {/* Corner Ambient Glow */}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#2F8FFF]/15 rounded-full blur-3xl pointer-events-none" />
 
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white dark:text-white light:text-slate-900 group-hover:text-[#2F8FFF] transition-colors mb-2">
-                  {stat.value}
+              <div className="flex items-center gap-3 mb-6">
+                <img
+                  src="/logo.png"
+                  alt="KORE"
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+
+              <div className="space-y-4 pt-2 border-t border-white/10">
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#2F8FFF]/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white">Full-Stack Digital Execution</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Web apps, cloud portals, brand identities, and high-conversion ad creatives under one roof.</p>
+                  </div>
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-400 dark:text-slate-400 light:text-slate-600 tracking-wide">
-                  {stat.label}
+
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#2F8FFF]/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white">Direct Client Partnership</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Zero middlemen and no fragmented freelancer friction. Fast, accountable sprints from start to finish.</p>
+                  </div>
                 </div>
-                <div className="mt-3 flex items-center gap-1.5 text-[11px] text-[#5eb0ff] font-medium">
-                  <CheckCircle2 className="w-3 h-3 text-[#2F8FFF]" />
-                  <span>Verified Benchmark</span>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#2F8FFF]/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white">Modern Enterprise Tech</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Engineered with high-speed Next.js, responsive Tailwind systems, and cloud databases.</p>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs">
+                <div className="text-slate-400">
+                  Headquarters: <span className="text-white font-semibold">Chelembra, Malappuram</span>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-[#2F8FFF]/15 border border-[#2F8FFF]/30 text-[#38bdf8] font-bold text-[11px]">
+                  Verified Studio
+                </span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

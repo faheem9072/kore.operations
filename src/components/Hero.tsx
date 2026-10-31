@@ -20,9 +20,9 @@ export default function Hero({ onSelectCategory }: HeroProps) {
   const servicePills = [
     { label: 'BRAND IDENTITY', category: 'design' as ProjectCategory, dotColor: '#2F8FFF' },
     { label: 'WEB DESIGN & ERP', category: 'web' as ProjectCategory, dotColor: '#38bdf8' },
-    { label: 'DIGITAL MARKETING', category: 'social' as ProjectCategory, dotColor: '#60a5fa' },
-    { label: 'PACKAGING DESIGN', category: 'packaging' as ProjectCategory, dotColor: '#818cf8' },
-    { label: 'AI & AUTOMATION', category: 'web' as ProjectCategory, dotColor: '#bae6fd' },
+    { label: 'SOCIAL MEDIA ADS', category: 'social' as ProjectCategory, dotColor: '#60a5fa' },
+    { label: 'AI & AUTOMATION', category: 'web' as ProjectCategory, dotColor: '#818cf8' },
+    { label: 'ENTERPRISE APPS', category: 'web' as ProjectCategory, dotColor: '#bae6fd' },
   ];
 
   const handlePillClick = (cat: ProjectCategory) => {

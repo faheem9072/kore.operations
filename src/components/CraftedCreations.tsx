@@ -22,22 +22,11 @@ export default function CraftedCreations({
   const [viewMode, setViewMode] = useState<'showcase' | 'grid'>('showcase');
 
   // Split projects into 2 balanced rows for the dual-row horizontal showcase
-  const row1Projects: Project[] = [
-    PROJECTS.find((p) => p.id === 'maplefield-influencer') || PROJECTS[0],
-    PROJECTS.find((p) => p.id === 'darul-irshad-erp') || PROJECTS[1],
-    PROJECTS.find((p) => p.id === 'findo-website') || PROJECTS[2],
-    PROJECTS.find((p) => p.id === 'krewx-identity') || PROJECTS[3],
-    PROJECTS.find((p) => p.id === 'findo-kids-school') || PROJECTS[4],
-  ].filter(Boolean);
-
-  const row2Projects: Project[] = [
-    PROJECTS.find((p) => p.id === 'maplefield-ejari') || PROJECTS[5] || PROJECTS[0],
-    PROJECTS.find((p) => p.id === 'nalakath-fleet-app') || PROJECTS[6] || PROJECTS[1],
-    PROJECTS.find((p) => p.id === 'maplefield-import-export') || PROJECTS[7] || PROJECTS[2],
-    PROJECTS.find((p) => p.id === 'findo-identity') || PROJECTS[8] || PROJECTS[3],
-    PROJECTS.find((p) => p.id === 'findo-cloth-bag') || PROJECTS[9] || PROJECTS[4],
-    PROJECTS.find((p) => p.id === 'best-smile-clinic') || PROJECTS[10] || PROJECTS[5],
-  ].filter(Boolean);
+  const mid = Math.ceil(PROJECTS.length / 2);
+  const row1Projects: Project[] = PROJECTS.slice(0, mid);
+  const row2Projects: Project[] = PROJECTS.slice(mid).concat(
+    PROJECTS.length % 2 !== 0 ? [PROJECTS[0]] : []
+  );
 
   // All filter options for Grid mode
   const filterTabs = [
