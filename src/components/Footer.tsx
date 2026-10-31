@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUp, MapPin, Phone, Mail, MessageCircle, Heart } from 'lucide-react';
+import { ArrowUp, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO, CATEGORIES } from '@/data/projects';
 
 export default function Footer() {
@@ -135,15 +135,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex items-center justify-between gap-4 text-xs text-slate-500">
           <div>
             &copy; {new Date().getFullYear()} KORE Operations. All rights reserved.
-          </div>
-
-          <div className="flex items-center gap-1 text-slate-400">
-            <span>Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-[#2F8FFF] fill-[#2F8FFF]" />
-            <span>in Chelembra, Malappuram, Kerala</span>
           </div>
 
           <button
