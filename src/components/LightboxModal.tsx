@@ -70,7 +70,9 @@ export default function LightboxModal({
   const getScreenTabLabel = (img: string, idx: number) => {
     if (img.includes('-attendance')) return 'Attendance';
     if (img.includes('-portal')) return 'Parent Portal';
-    if (img.endsWith('.svg') || img.includes('darul-irshad')) return 'Studio Showcase';
+    if (img.includes('findo-hero')) return 'Hero View';
+    if (img.includes('findo-catalog')) return 'Store Catalog';
+    if (img.endsWith('.svg') || img.includes('darul-irshad') || img.includes('findo-web')) return 'Studio Showcase';
     if (img.includes('-fleet')) return 'Live Ops';
     if (img.includes('-login')) return 'Login';
     if (img.includes('-splash')) return 'Splash';

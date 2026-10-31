@@ -149,3 +149,4 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" wid
 fs.writeFileSync('public/work/web/darul-irshad.svg', svg);
 fs.writeFileSync('public/work/web/darul-irshad.jpg', svg);
 console.log('Successfully generated high-end dual-device studio mockup for Darul Irshad!');
+
