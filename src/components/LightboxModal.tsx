@@ -72,6 +72,7 @@ export default function LightboxModal({
     currentDisplayImage.includes('-portal');
 
   const getScreenTabLabel = (img: string, idx: number) => {
+    if (img.includes('krewx-campaign') || img.includes('krewx-poster')) return 'Campaign Poster';
     if (img.includes('krewx-logo')) return 'Brand Logo';
     if (img.includes('krewx')) return 'Platform UI';
     if (img.includes('astrella')) return 'Monogram';

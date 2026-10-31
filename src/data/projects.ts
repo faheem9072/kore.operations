@@ -56,6 +56,7 @@ export const PROJECTS: Project[] = [
     image: '/work/web/krewx.jpg',
     gallery: [
       '/work/web/krewx.jpg',
+      '/work/social/krewx-campaign.jpg',
       '/work/design/krewx-logo.jpg',
     ],
     description: 'On-demand manpower and direct workforce web platform engineered by KORE ("A Product by KORE"). Connects verified job seekers and local businesses with daily shifts, role-based hiring, and zero middlemen across all 14 Kerala districts.',
@@ -116,6 +117,7 @@ export const PROJECTS: Project[] = [
     image: '/work/design/krewx-logo.jpg',
     gallery: [
       '/work/design/krewx-logo.jpg',
+      '/work/social/krewx-campaign.jpg',
       '/work/web/krewx.jpg',
     ],
     description: 'Dynamic kinetic brand identity, signature human-motion \'K\' monogram, and visual design system created for Krewx ("Your Crew, On Demand") — A Product by KORE.',
@@ -147,6 +149,25 @@ export const PROJECTS: Project[] = [
   // -----------------------------------------------------------------------
   // 3. SOCIAL MEDIA DESIGN
   // -----------------------------------------------------------------------
+  {
+    id: 'krewx-campaign',
+    title: 'Krewx — Launch Campaign & Ad Creative',
+    category: 'social',
+    categoryLabel: 'Social Media Ad Creative',
+    image: '/work/social/krewx-campaign.jpg',
+    gallery: [
+      '/work/social/krewx-campaign.jpg',
+      '/work/design/krewx-logo.jpg',
+      '/work/web/krewx.jpg',
+    ],
+    description: 'High-impact launch campaign creative engineered for Krewx ("Find work. Find workers. Faster. — A Product of KORE"). Designed with sleek dual job-seeker/employer messaging, direct hiring workflows, and transparent Kerala-wide workforce acquisition.',
+    client: 'Krewx (A Product by KORE)',
+    year: '2025',
+    tags: ['Ad Campaign', 'Social Media Creative', 'Poster Design', 'Krewx', 'Product of KORE', 'Manpower Platform'],
+    link: 'https://krewx.in',
+    featured: true,
+    aspect: 'portrait',
+  },
   {
     id: 'maplefield-influencer',
     title: 'MapleField — Influencer Licensing Campaign',
