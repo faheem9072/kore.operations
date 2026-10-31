@@ -32,8 +32,8 @@ export default function Footer() {
               {COMPANY_INFO.tagline} Kerala&apos;s premier partner for digital transformation, corporate branding, custom web platforms, and operational excellence.
             </p>
 
-            <p className="font-malayalam text-xs text-[#5eb0ff] font-medium leading-relaxed">
-              കേരളത്തിലെ സംരംഭങ്ങൾക്ക് ആഗോള ഡിജിറ്റൽ പരിഹാരങ്ങൾ • ചേളമ്പ്ര, മലപ്പുറം.
+            <p className="text-xs text-[#5eb0ff] font-medium leading-relaxed">
+              Empowering businesses with world-class digital solutions &amp; brand engineering.
             </p>
 
             <div className="pt-2 flex items-center gap-2 text-xs text-slate-400">

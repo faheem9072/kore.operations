@@ -35,13 +35,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["'Plus Jakarta Sans'", "Inter", "system-ui", "-apple-system", "sans-serif"],
-        malayalam: [
-          "'Noto Sans Malayalam'",
-          "Manjari",
-          "system-ui",
-          "-apple-system",
-          "sans-serif",
-        ],
       },
       animation: {
         "marquee": "marquee 30s linear infinite",

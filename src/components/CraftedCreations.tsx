@@ -201,13 +201,7 @@ export default function CraftedCreations({
                         </div>
                       </div>
 
-                      {/* Malayalam snippet */}
-                      {project.descriptionMl && (
-                        <p className="font-malayalam text-xs sm:text-sm text-[#5eb0ff] font-medium mb-2 line-clamp-1">
-                          {project.descriptionMl}
-                        </p>
-                      )}
-
+                      {/* Project Description */}
                       <p className="text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-600 line-clamp-2 leading-relaxed mb-4">
                         {project.description}
                       </p>

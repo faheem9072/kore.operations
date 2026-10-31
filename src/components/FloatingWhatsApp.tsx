@@ -15,7 +15,6 @@ export default function FloatingWhatsApp() {
           <div className="flex flex-col">
             <span className="font-bold text-[#5eb0ff]">Need Quick Help?</span>
             <span className="text-[11px] text-slate-300 dark:text-slate-300 light:text-slate-600">Chat with us on WhatsApp</span>
-            <span className="font-malayalam text-[10px] text-slate-400">വാട്ട്‌സ്ആപ്പിൽ സംസാരിക്കാം</span>
           </div>
           <button
             onClick={() => setShowTooltip(false)}

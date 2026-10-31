@@ -49,9 +49,8 @@ export default function WhoWeAre() {
               <span className="text-[#2F8FFF]">Amplifying Brand Value.</span>
             </h2>
 
-            {/* Malayalam Accent Line */}
-            <p className="text-base sm:text-lg font-malayalam font-medium text-[#5eb0ff]/90">
-              ചേളമ്പ്രയിൽ നിന്ന് ലോകോത്തര നിലവാരത്തിലുള്ള ഡിജിറ്റൽ സേവനങ്ങൾ.
+            <p className="text-base sm:text-lg font-medium text-[#5eb0ff]">
+              Delivering world-class digital craft &amp; operational excellence.
             </p>
 
             <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-base sm:text-lg leading-relaxed">

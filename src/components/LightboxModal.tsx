@@ -60,14 +60,21 @@ export default function LightboxModal({
 
   const currentDisplayImage = currentGallery[galleryIndex] || project.image;
 
+  const isMobileAppChassis =
+    currentDisplayImage.includes('-fleet') ||
+    currentDisplayImage.includes('-login') ||
+    currentDisplayImage.includes('-splash');
+
   const isCurrentImagePortrait =
     project.aspect === 'portrait' ||
+    isMobileAppChassis ||
     currentDisplayImage.includes('-attendance') ||
-    currentDisplayImage.includes('-portal') ||
-    currentDisplayImage.includes('-fleet') ||
-    currentDisplayImage.includes('-login');
+    currentDisplayImage.includes('-portal');
 
   const getScreenTabLabel = (img: string, idx: number) => {
+    if (img.includes('maplefield-influencer')) return 'Influencer License';
+    if (img.includes('maplefield-ejari')) return 'Ejari Services';
+    if (img.includes('maplefield-import-export')) return 'Import & Export';
     if (img.includes('-attendance')) return 'Attendance';
     if (img.includes('-portal')) return 'Parent Portal';
     if (img.includes('findo-hero')) return 'Hero View';
@@ -202,21 +209,32 @@ export default function LightboxModal({
                     alt=""
                     className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-125 pointer-events-none"
                   />
-                  {/* Centered Device Showcase with Titanium Edge & Top Bar */}
-                  <div className="relative z-10 h-full max-h-[420px] sm:max-h-[500px] flex items-center justify-center">
-                    <div className="relative h-full max-h-[420px] sm:max-h-[500px] rounded-[32px] p-2 bg-[#121826] border-2 border-[#2a3854] shadow-2xl shadow-black/80 flex flex-col items-center">
-                      {/* Top Island Bar */}
-                      <div className="w-24 h-4 bg-black rounded-full mb-1 flex items-center justify-center gap-1.5 shrink-0">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e293b]" />
-                        <span className="w-1 h-1 rounded-full bg-[#2F8FFF]" />
+                  {/* Centered Showcase */}
+                  <div className="relative z-10 h-full max-h-[440px] sm:max-h-[520px] flex items-center justify-center">
+                    {isMobileAppChassis ? (
+                      <div className="relative h-full max-h-[420px] sm:max-h-[500px] rounded-[32px] p-2 bg-[#121826] border-2 border-[#2a3854] shadow-2xl shadow-black/80 flex flex-col items-center">
+                        {/* Top Island Bar */}
+                        <div className="w-24 h-4 bg-black rounded-full mb-1 flex items-center justify-center gap-1.5 shrink-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#1e293b]" />
+                          <span className="w-1 h-1 rounded-full bg-[#2F8FFF]" />
+                        </div>
+                        <img
+                          src={currentDisplayImage}
+                          alt={project.title}
+                          onError={() => setImageError(true)}
+                          className="h-[calc(100%-20px)] w-auto max-w-[80vw] object-contain rounded-[24px] overflow-hidden"
+                        />
                       </div>
-                      <img
-                        src={currentDisplayImage}
-                        alt={project.title}
-                        onError={() => setImageError(true)}
-                        className="h-[calc(100%-20px)] w-auto max-w-[80vw] object-contain rounded-[24px] overflow-hidden"
-                      />
-                    </div>
+                    ) : (
+                      <div className="relative h-full max-h-[440px] sm:max-h-[520px] rounded-2xl p-1.5 bg-[#0f1629]/80 border border-white/15 shadow-2xl shadow-black/80 flex items-center justify-center overflow-hidden">
+                        <img
+                          src={currentDisplayImage}
+                          alt={project.title}
+                          onError={() => setImageError(true)}
+                          className="h-full w-auto max-w-[85vw] object-contain rounded-xl"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               ) : (
@@ -301,13 +319,6 @@ export default function LightboxModal({
             <h2 id="modal-title" className="text-2xl sm:text-3xl font-extrabold text-white dark:text-white light:text-slate-900 mb-3">
               {project.title}
             </h2>
-
-            {/* Malayalam description highlight */}
-            {project.descriptionMl && (
-              <p className="font-malayalam text-sm sm:text-base text-[#5eb0ff] font-medium mb-3 leading-relaxed">
-                {project.descriptionMl}
-              </p>
-            )}
 
             {/* English description */}
             <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed mb-6">

@@ -88,9 +88,8 @@ export default function Contact() {
                 Direct Contact Channels
               </h3>
 
-              {/* Malayalam Welcome Tag */}
-              <p className="font-malayalam text-xs text-[#5eb0ff] font-medium mb-6">
-                നിങ്ങളുടെ ബിസിനസ്സ് ആശയങ്ങൾ പങ്കുവെക്കൂ, നമുക്ക് ഒരുമിച്ച് വളരാം.
+              <p className="text-xs text-[#5eb0ff] font-medium mb-6">
+                Share your business vision with us — let&apos;s build something exceptional together.
               </p>
 
               <div className="space-y-5">

@@ -8,7 +8,6 @@ export interface Project {
   image: string;
   gallery?: string[]; // Multiple screenshot previews
   description: string;
-  descriptionMl?: string; // Optional Malayalam description
   client?: string;
   year?: string;
   tags: string[];

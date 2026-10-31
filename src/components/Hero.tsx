@@ -47,10 +47,10 @@ export default function Hero() {
             <span>{COMPANY_INFO.positioning}</span>
           </div>
 
-          {/* Malayalam Location Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-slate-100 border border-white/10 dark:border-white/10 light:border-slate-200 text-xs font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 font-malayalam">
+          {/* Location Pill */}
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-slate-100 border border-white/10 dark:border-white/10 light:border-slate-200 text-xs font-medium text-slate-300 dark:text-slate-300 light:text-slate-600">
             <MapPin className="w-3 h-3 text-[#2F8FFF]" />
-            <span>ചേളമ്പ്ര, മലപ്പുറം</span>
+            <span>Chelembra, Malappuram</span>
           </div>
         </motion.div>
 
@@ -69,14 +69,14 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        {/* Malayalam Accent Tagline */}
+        {/* Accent Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-sm sm:text-base font-malayalam font-medium text-[#5eb0ff]/90 mb-4 tracking-wide"
+          className="text-xs sm:text-sm font-bold uppercase text-[#5eb0ff] mb-4 tracking-widest"
         >
-          നിങ്ങളുടെ ബിസിനസ്സിന് ഏറ്റവും മികച്ച ക്രിയേറ്റീവ് &amp; ഡിജിറ്റൽ പരിഹാരങ്ങൾ
+          Premier Creative &amp; Digital Solutions For High-Growth Brands
         </motion.p>
 
         {/* Subtext */}

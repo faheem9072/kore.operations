@@ -14,8 +14,8 @@ export default function AboutWhyKore() {
     },
     {
       icon: <Compass className="w-6 h-6 text-[#2F8FFF]" />,
-      title: 'Kerala Context & Malayalam Mastery',
-      desc: 'Deep local market insight from Chelembra and Malappuram, combined with authentic Malayalam typography and regional cultural nuances that build real trust.',
+      title: 'Strategic Market Insight',
+      desc: 'Deep regional and global market insight, paired with compelling typography, high-impact branding, and cultural resonance that builds lasting trust.',
     },
     {
       icon: <Cpu className="w-6 h-6 text-[#2F8FFF]" />,
