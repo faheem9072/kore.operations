@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ProjectCategory } from '@/types';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface ServicesProps {
   onSelectCategory: (category: ProjectCategory) => void;
@@ -15,15 +15,11 @@ interface ServiceTab {
   title: string;
   subtitle: string;
   color: string;
-  pillImage1: string;
-  pillImage2: string;
-  client1: string;
-  client2: string;
   deliverables: string[];
 }
 
 export default function Services({ onSelectCategory }: ServicesProps) {
-  // Default active service matching Image 2
+  // Default active service matching reference
   const [activeServiceId, setActiveServiceId] = useState<ProjectCategory>('design');
 
   const servicesData: ServiceTab[] = [
@@ -31,12 +27,8 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       id: 'design',
       num: '01',
       title: 'BRAND IDENTITY',
-      subtitle: 'Logo Systems & Visual Brand Strategy',
+      subtitle: 'Logo Systems & Visual Strategy',
       color: '#38bdf8',
-      pillImage1: '/work/design/krewx.jpg',
-      pillImage2: '/work/design/findo-branding.jpg',
-      client1: 'Krewx',
-      client2: 'Findo',
       deliverables: ['Logo & Monogram Design', 'Brand Guidelines & Books', 'Corporate Stationery', 'Typography Systems'],
     },
     {
@@ -45,10 +37,6 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       title: 'WEB APPS & ERP',
       subtitle: 'Custom Next.js Systems & Cloud Portals',
       color: '#2F8FFF',
-      pillImage1: '/work/web/darul-irshad-attendance.jpg',
-      pillImage2: '/work/web/nalakath-fleet.jpg',
-      client1: 'Darul Irshad',
-      client2: 'Nalakath Fleet',
       deliverables: ['Academic & Business ERPs', 'Live Fleet Web Apps', 'E-Commerce Portals', 'Responsive UI/UX'],
     },
     {
@@ -57,10 +45,6 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       title: 'SOCIAL MEDIA CREATIVES',
       subtitle: 'High-Impact Ad Campaigns & Posters',
       color: '#60a5fa',
-      pillImage1: '/work/social/maplefield-influencer.jpg',
-      pillImage2: '/work/social/maplefield-ejari.jpg',
-      client1: 'MapleField UAE',
-      client2: 'Ejari Campaign',
       deliverables: ['Meta Ad Creatives', 'Campaign Posters', 'Social Carousels', 'Event & Launch Assets'],
     },
     {
@@ -69,10 +53,6 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       title: 'PACKAGING DESIGN',
       subtitle: 'Physical Product Brilliance & Print Artworks',
       color: '#818cf8',
-      pillImage1: '/work/packaging/findo-kids.jpg',
-      pillImage2: '/work/packaging/findo-cloth-bag.jpg',
-      client1: 'Findo STEM Box',
-      client2: 'Eco Cloth Bag',
       deliverables: ['Box Architecture & Cartons', 'Eco Cloth Bags & Pouches', 'Label & Tag Artworks', 'Print Die Lines'],
     },
   ];
@@ -95,7 +75,7 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#2F8FFF]/10 rounded-full blur-[180px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        {/* Section Header matching Image 2 */}
+        {/* Section Header */}
         <div className="text-left max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -121,7 +101,7 @@ export default function Services({ onSelectCategory }: ServicesProps) {
         </div>
       </div>
 
-      {/* Interactive Expandable Banner Rows (Matching Image 2 Reference) */}
+      {/* Interactive Expandable Banner Rows */}
       <div className="w-full space-y-4">
         {servicesData.map((service) => {
           const isActive = activeServiceId === service.id;
@@ -129,7 +109,7 @@ export default function Services({ onSelectCategory }: ServicesProps) {
           return (
             <div key={service.id} className="w-full">
               {isActive ? (
-                /* ACTIVE STATE: High-Voltage Electric Blue Banner Band */
+                /* ACTIVE STATE: High-Voltage Electric Blue Banner Band without pills */
                 <motion.div
                   layout
                   initial={{ opacity: 0, scaleY: 0.8 }}
@@ -142,46 +122,28 @@ export default function Services({ onSelectCategory }: ServicesProps) {
                   {/* Subtle Shimmer Overlay on Banner */}
                   <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-                  {/* Continuous Horizontal Ticker with Embedded Project Thumbnail Pills */}
+                  {/* Clean Continuous Typography Ticker */}
                   <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
-                    {[...Array(3)].map((_, repIdx) => (
+                    {[...Array(4)].map((_, repIdx) => (
                       <div
                         key={repIdx}
-                        className="flex items-center gap-6 sm:gap-10 shrink-0 pr-6 sm:pr-10"
+                        className="flex items-center gap-8 sm:gap-14 shrink-0 pr-8 sm:pr-14"
                       >
                         {/* Title text in Bold Black/Dark Navy */}
                         <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-[#060b18] tracking-tight">
                           {service.title}
                         </span>
 
-                        {/* Pill Thumbnail 1 */}
-                        <div className="h-10 sm:h-14 px-3 sm:px-4 rounded-full bg-[#060b18] border border-black/30 flex items-center gap-2.5 shadow-lg shrink-0">
-                          <img
-                            src={service.pillImage1}
-                            alt=""
-                            className="w-7 h-7 sm:w-10 sm:h-10 rounded-full object-cover border border-white/20"
-                          />
-                          <span className="text-white text-xs sm:text-sm font-bold tracking-wider">
-                            {service.client1}
-                          </span>
-                        </div>
+                        {/* Bullet Dot Separator */}
+                        <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#060b18] rounded-full shrink-0" />
 
-                        {/* Repeated Title text */}
-                        <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-[#060b18] tracking-tight">
-                          {service.title}
+                        {/* Subtitle text */}
+                        <span className="text-xl sm:text-3xl md:text-4xl font-extrabold uppercase text-[#060b18]/75 tracking-wide">
+                          {service.subtitle}
                         </span>
 
-                        {/* Card Thumbnail 2 */}
-                        <div className="h-10 sm:h-14 px-3 sm:px-4 rounded-2xl bg-[#060b18] border border-black/30 flex items-center gap-2.5 shadow-lg shrink-0">
-                          <img
-                            src={service.pillImage2}
-                            alt=""
-                            className="w-10 h-7 sm:w-14 sm:h-10 rounded-xl object-cover border border-white/20"
-                          />
-                          <span className="text-[#38bdf8] text-xs sm:text-sm font-bold tracking-wider">
-                            {service.client2}
-                          </span>
-                        </div>
+                        {/* Diamond Separator */}
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#060b18]/50 rotate-45 shrink-0" />
                       </div>
                     ))}
                   </div>
