@@ -173,3 +173,4 @@ placeholders.forEach(item => {
   fs.writeFileSync(svgPath, generateSvg(item));
   console.log('Created:', item.path);
 });
+

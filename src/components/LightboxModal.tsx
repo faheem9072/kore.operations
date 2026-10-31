@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/types';
-import { X, ExternalLink, ChevronLeft, ChevronRight, Calendar, User, Tag } from 'lucide-react';
+import { X, ExternalLink, ChevronLeft, ChevronRight, Calendar, User, Tag, Layers } from 'lucide-react';
 
 interface LightboxModalProps {
   project: Project | null;
@@ -20,8 +19,15 @@ export default function LightboxModal({
   onSelectProject,
 }: LightboxModalProps) {
   const [imageError, setImageError] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
   const touchStartX = useRef<number>(0);
   const touchStartY = useRef<number>(0);
+
+  // Reset gallery index on project switch
+  useEffect(() => {
+    setGalleryIndex(0);
+    setImageError(false);
+  }, [project?.id]);
 
   // Close on Escape & handle keyboard arrows
   useEffect(() => {
@@ -47,6 +53,12 @@ export default function LightboxModal({
 
   const currentIndex = projectsList.findIndex((p) => p.id === project.id);
   const hasMultiple = projectsList.length > 1;
+
+  const currentGallery = project.gallery && project.gallery.length > 0
+    ? project.gallery
+    : [project.image];
+
+  const currentDisplayImage = currentGallery[galleryIndex] || project.image;
 
   const handleNext = () => {
     if (!hasMultiple) return;
@@ -75,9 +87,18 @@ export default function LightboxModal({
     // Horizontal swipe threshold: 50px
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
       if (diffX > 0) {
-        handleNext(); // swipe left -> next
+        // If current project has more gallery items, swipe through gallery first
+        if (galleryIndex < currentGallery.length - 1) {
+          setGalleryIndex(galleryIndex + 1);
+        } else {
+          handleNext();
+        }
       } else {
-        handlePrev(); // swipe right -> prev
+        if (galleryIndex > 0) {
+          setGalleryIndex(galleryIndex - 1);
+        } else {
+          handlePrev();
+        }
       }
     }
 
@@ -152,14 +173,34 @@ export default function LightboxModal({
           )}
 
           {/* Main Visual Display */}
-          <div className="relative w-full aspect-video bg-[#060a16] overflow-hidden flex items-center justify-center">
+          <div className="relative w-full aspect-video min-h-[340px] sm:min-h-[440px] bg-[#060a16] overflow-hidden flex items-center justify-center">
             {!imageError ? (
-              <img
-                src={project.image}
-                alt={project.title}
-                onError={() => setImageError(true)}
-                className="w-full h-full object-cover object-center"
-              />
+              project.aspect === 'portrait' ? (
+                <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#090e1f] to-[#04060c] p-4 sm:p-6">
+                  {/* Ambient soft glow backdrop */}
+                  <img
+                    src={currentDisplayImage}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-125 pointer-events-none"
+                  />
+                  {/* Centered Device Showcase */}
+                  <div className="relative z-10 h-full max-h-[420px] sm:max-h-[500px] flex items-center justify-center">
+                    <img
+                      src={currentDisplayImage}
+                      alt={project.title}
+                      onError={() => setImageError(true)}
+                      className="h-full w-auto max-w-[85vw] object-contain rounded-2xl shadow-2xl border border-white/20 transition-all duration-300"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <img
+                  src={currentDisplayImage}
+                  alt={project.title}
+                  onError={() => setImageError(true)}
+                  className="w-full h-full object-cover object-center"
+                />
+              )
             ) : (
               // Fallback Artwork
               <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-[#0c142b] to-[#060913] text-center">
@@ -175,7 +216,30 @@ export default function LightboxModal({
             )}
 
             {/* Gradient bottom shadow inside media */}
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0b1122] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0b1122] to-transparent pointer-events-none" />
+
+            {/* Gallery Thumbnail Selector Strip if Multiple Screenshots */}
+            {currentGallery.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-lg">
+                <Layers className="w-3.5 h-3.5 text-[#5eb0ff]" />
+                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-300 mr-1 hidden sm:inline">
+                  Screens:
+                </span>
+                {currentGallery.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setGalleryIndex(idx)}
+                    className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
+                      galleryIndex === idx
+                        ? 'bg-[#2F8FFF] text-white shadow-sm shadow-[#2F8FFF]/50 scale-105'
+                        : 'bg-white/10 text-slate-300 hover:bg-white/20'
+                    }`}
+                  >
+                    {idx === 0 ? 'Live Ops' : idx === 1 ? 'Login' : 'Splash'}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Project Details Sheet */}
@@ -240,7 +304,7 @@ export default function LightboxModal({
             {/* Bottom Actions */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10 dark:border-white/10 light:border-slate-200">
               <span className="text-[11px] text-slate-400 italic sm:block hidden">
-                Tip: Use left/right arrow keys or swipe on mobile to navigate.
+                Tip: Click the screen pills or swipe to view all app screens.
               </span>
 
               <div className="flex items-center gap-3 ml-auto">
@@ -258,7 +322,7 @@ export default function LightboxModal({
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#2F8FFF] hover:bg-[#1a77ea] text-white text-xs font-bold shadow-md shadow-[#2F8FFF]/30 transition-all hover:-translate-y-0.5"
                   >
-                    <span>View Live Case</span>
+                    <span>View Live Web App</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}

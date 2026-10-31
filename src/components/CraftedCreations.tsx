@@ -127,15 +127,36 @@ export default function CraftedCreations({
                   className="group relative cursor-pointer rounded-3xl overflow-hidden bg-[#0c1224] dark:bg-[#0c1224] light:bg-white border border-white/10 dark:border-white/10 light:border-slate-200 hover:border-[#2F8FFF]/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(47,143,255,0.3)] flex flex-col"
                 >
                   {/* Media Showcase Area */}
-                  <div className="relative w-full aspect-[16/10] bg-[#070c1a] overflow-hidden">
+                  <div className="relative w-full aspect-[16/10] bg-[#070c1a] overflow-hidden flex items-center justify-center">
                     {!hasError ? (
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        onError={() => handleImageError(project.id)}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
+                      project.aspect === 'portrait' ? (
+                        <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#090e1f] to-[#04060c]">
+                          {/* Ambient soft glow backdrop */}
+                          <img
+                            src={project.image}
+                            alt=""
+                            className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-25 scale-125 pointer-events-none"
+                          />
+                          {/* Device preview */}
+                          <div className="relative z-10 h-[92%] my-auto py-2 flex items-center justify-center">
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              onError={() => handleImageError(project.id)}
+                              className="h-full w-auto max-w-[85%] object-contain rounded-2xl shadow-2xl border border-white/20 group-hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          onError={() => handleImageError(project.id)}
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      )
                     ) : (
                       // Interactive Vector Card Fallback
                       <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-[#0c1630] via-[#091022] to-[#050812] text-center">
@@ -226,3 +247,4 @@ export default function CraftedCreations({
     </section>
   );
 }
+

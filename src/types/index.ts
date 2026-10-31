@@ -6,6 +6,7 @@ export interface Project {
   category: ProjectCategory;
   categoryLabel: string;
   image: string;
+  gallery?: string[]; // Multiple screenshot previews
   description: string;
   descriptionMl?: string; // Optional Malayalam description
   client?: string;
@@ -13,6 +14,7 @@ export interface Project {
   tags: string[];
   link?: string;
   featured?: boolean;
+  aspect?: 'portrait' | 'landscape';
 }
 
 export interface ServiceItem {

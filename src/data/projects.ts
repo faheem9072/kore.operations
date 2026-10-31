@@ -8,16 +8,14 @@ import { Project, ServiceItem } from '@/types';
  * below and fill in the details.
  *
  * Categories allowed:
- *   - 'web'       : Web Design & Development
+ *   - 'web'       : Web Design & Development / Web Apps
  *   - 'design'    : Logo & Visual Identity Design
  *   - 'social'    : Social Media & Marketing Creatives
  *   - 'packaging' : Packaging & Physical Goods Design
  *
  * Images:
  *   Place your images in: /public/work/[category]/[filename].jpg
- *   e.g. /work/web/darul-irshad.jpg
- *   If the image is missing, the site will automatically render a premium
- *   geometric placeholder with the project title and category badge!
+ *   e.g. /work/web/nalakath-fleet.jpg
  * =========================================================================
  */
 
@@ -30,8 +28,28 @@ export const CATEGORIES = [
 
 export const PROJECTS: Project[] = [
   // -----------------------------------------------------------------------
-  // 1. WEB DESIGN
+  // 1. WEB DESIGN & WEB APPS
   // -----------------------------------------------------------------------
+  {
+    id: 'nalakath-fleet-app',
+    title: 'Nalakath Logistics — Fleet Management',
+    category: 'web',
+    categoryLabel: 'Fleet Web App',
+    image: '/work/web/nalakath-fleet.jpg',
+    gallery: [
+      '/work/web/nalakath-fleet.jpg',
+      '/work/web/nalakath-login.jpg',
+      '/work/web/nalakath-splash.png',
+    ],
+    description: 'A mission-critical, real-time fleet operations and driver tracking web application engineered for Nalakath Logistics (Since 1998). Features live on-trip vehicle tracking, driver PIN verification, idle status monitoring, multi-trip dispatches, and dedicated Driver/Owner authentication portals.',
+    descriptionMl: 'നാലകത്ത് ലോജിസ്റ്റിക്‌സിനായി കോർ (KORE) രൂപകൽപ്പന ചെയ്ത് വികസിപ്പിച്ച ലൈവ് ഫ്ലീറ്റ് മാനേജ്‌മെന്റ് വെബ് ആപ്പ്. തത്സമയ വെഹിക്കിൾ ട്രാക്കിംഗ്, ഡ്രൈവർ ഡെസ്‌പാച്ച്, ട്രിപ്പ് അപ്രൂവൽ എന്നിവ ഉൾക്കൊള്ളുന്നു.',
+    client: 'Nalakath Logistics (Since 1998)',
+    year: '2025',
+    tags: ['Fleet Management', 'Live Tracking', 'Mobile Web App', 'Driver Portal', 'Next.js'],
+    link: 'https://nalakathlogistics.com',
+    featured: true,
+    aspect: 'portrait',
+  },
   {
     id: 'darul-irshad-erp',
     title: 'Darul Irshad ERP',
@@ -161,12 +179,12 @@ export const PROJECTS: Project[] = [
 export const SERVICES: ServiceItem[] = [
   {
     id: 'web',
-    title: 'Web Design',
+    title: 'Web Design & Apps',
     subtitle: 'High Performance & Conversion',
-    description: 'Bespoke corporate websites, web applications, and intuitive ERP systems crafted with cutting-edge speed, SEO, and responsiveness.',
+    description: 'Custom web apps, real-time fleet operations portals, and intuitive school/business ERP systems crafted with cutting-edge speed, SEO, and responsiveness.',
     iconName: 'Globe',
     badge: 'Digital Flagship',
-    deliverables: ['Custom Next.js & React Apps', 'School / Business ERPs', 'E-Commerce Platforms', 'Mobile-First UI/UX'],
+    deliverables: ['Fleet Management & Web Apps', 'Custom Next.js & React Systems', 'School / Business ERPs', 'Mobile-First UI/UX'],
   },
   {
     id: 'design',

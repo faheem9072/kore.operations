@@ -112,3 +112,4 @@ To add a new project, simply copy an existing block inside `PROJECTS` array:
 - **Location:** Chelembra, Malappuram, Kerala, India
 - **Phone / WhatsApp:** +91 70253 87768
 - **Email:** hellokoreteam@gmail.com
+

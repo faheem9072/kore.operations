@@ -145,3 +145,4 @@ export default function Services({ onSelectCategory }: ServicesProps) {
     </section>
   );
 }
+
