@@ -2,24 +2,24 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Bot, Server, Globe2 } from 'lucide-react';
+import { CheckCircle2, Bot, TrendingUp, Compass } from 'lucide-react';
 
 export default function WhoWeAre() {
   const highlights = [
     {
       icon: <Bot className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Agentic AI Workflows',
-      desc: 'Autonomous multi-agent systems and intelligent operations pipelines.',
+      title: 'Agentic AI & MCP',
+      desc: 'Autonomous multi-agent workflows and custom MCP servers for enterprise automation.',
     },
     {
-      icon: <Server className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Custom MCP Servers',
-      desc: 'Model Context Protocol servers connecting LLMs with private tools & databases.',
+      icon: <TrendingUp className="w-5 h-5 text-[#2F8FFF]" />,
+      title: 'Digital Marketing',
+      desc: 'High-conversion Meta & Google ad campaigns, creative posters, and growth funnels.',
     },
     {
-      icon: <Globe2 className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Next.js & Brand Systems',
-      desc: 'High-speed cloud portals, live fleet web apps, and distinctive brand identities.',
+      icon: <Compass className="w-5 h-5 text-[#2F8FFF]" />,
+      title: 'Business Consultancy',
+      desc: 'Operations audits, digital transformation roadmaps, and scalable tech advisory.',
     },
   ];
 
@@ -44,12 +44,12 @@ export default function WhoWeAre() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
-              AI Automation, Agentic Systems &amp;{' '}
-              <span className="text-[#2F8FFF]">Digital Engineering.</span>
+              Digital Marketing, Business Consultancy &amp;{' '}
+              <span className="text-[#2F8FFF]">Agentic AI.</span>
             </h2>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Based in <strong>Chelembra, Kerala</strong>, <strong>KORE</strong> engineers autonomous agentic workflows, custom Model Context Protocol (MCP) servers, high-performance web platforms, and iconic brand identities.
+              Based in <strong>Chelembra, Kerala</strong>, <strong>KORE</strong> helps businesses scale through high-conversion digital marketing, strategic business consultancy, autonomous agentic workflows, custom MCP servers, and modern web platforms.
             </p>
 
             {/* Feature Highlights */}
@@ -97,8 +97,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Agentic AI &amp; Process Automation</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Self-operating agent workflows, reasoning loops, and zero-touch operational pipelines.</p>
+                    <h4 className="text-sm font-bold text-white">Digital Marketing &amp; Growth Campaigns</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Performance Meta &amp; Google ad campaigns, high-impact creatives, and conversion funnels.</p>
                   </div>
                 </div>
 
@@ -107,8 +107,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Custom MCP Server Infrastructure</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Production-grade Model Context Protocol servers connecting LLMs to enterprise databases.</p>
+                    <h4 className="text-sm font-bold text-white">Business Consultancy &amp; Strategy</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Operational audits, digital transformation roadmaps, tech stack selection, and scaling advisory.</p>
                   </div>
                 </div>
 
@@ -117,8 +117,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Modern Next.js &amp; Brand Systems</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Fast-loading web applications, real-time fleet apps, and high-impact visual identities.</p>
+                    <h4 className="text-sm font-bold text-white">Agentic AI &amp; Web Platforms</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Self-operating agent workflows, custom MCP servers, and fast Next.js applications.</p>
                   </div>
                 </div>
               </div>

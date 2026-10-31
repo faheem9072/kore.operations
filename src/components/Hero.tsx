@@ -19,10 +19,11 @@ export default function Hero({ onSelectCategory }: HeroProps) {
 
   const servicePills = [
     { label: 'AGENTIC WORKFLOWS', category: 'web' as ProjectCategory, dotColor: '#2F8FFF' },
-    { label: 'CUSTOM MCP SERVERS', category: 'web' as ProjectCategory, dotColor: '#38bdf8' },
-    { label: 'AI AUTOMATION', category: 'web' as ProjectCategory, dotColor: '#60a5fa' },
-    { label: 'BRAND IDENTITY', category: 'design' as ProjectCategory, dotColor: '#818cf8' },
+    { label: 'DIGITAL MARKETING', category: 'social' as ProjectCategory, dotColor: '#38bdf8' },
+    { label: 'BUSINESS CONSULTANCY', category: 'web' as ProjectCategory, dotColor: '#60a5fa' },
+    { label: 'CUSTOM MCP SERVERS', category: 'web' as ProjectCategory, dotColor: '#818cf8' },
     { label: 'WEB APPS & ERP', category: 'web' as ProjectCategory, dotColor: '#bae6fd' },
+    { label: 'BRAND IDENTITY', category: 'design' as ProjectCategory, dotColor: '#a5b4fc' },
   ];
 
   const handlePillClick = (cat: ProjectCategory) => {
@@ -101,7 +102,7 @@ export default function Hero({ onSelectCategory }: HeroProps) {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="max-w-xl text-sm sm:text-base text-slate-300 font-normal leading-relaxed"
             >
-              We engineer autonomous agentic workflows, custom MCP servers, modern web platforms, and brand identities that scale operations.
+              We combine agentic AI workflows, high-growth digital marketing, business consultancy, and modern web platforms to scale operations.
             </motion.p>
 
             {/* CTA Pill Buttons matching Reference */}
