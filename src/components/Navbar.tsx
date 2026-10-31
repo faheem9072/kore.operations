@@ -58,20 +58,25 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="#home"
-            className="flex items-center gap-2 group focus:outline-none"
+            className="group relative flex items-center focus:outline-none py-1"
             aria-label="KORE Home"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#1a6cd4] to-[#2F8FFF] flex items-center justify-center font-black text-white text-lg tracking-wider shadow-md shadow-[#2F8FFF]/25 group-hover:scale-105 transition-transform">
-              K
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tight text-white dark:text-white group-hover:text-[#2F8FFF] transition-colors">
-                KORE<span className="text-[#2F8FFF]">.</span>
-              </span>
-              <span className="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1 hidden sm:block">
-                Chelembra
-              </span>
-            </div>
+            {/* Ambient soft backlight glow on hover */}
+            <div className="absolute -inset-x-2 -inset-y-1 rounded-2xl bg-[#2F8FFF]/0 group-hover:bg-[#2F8FFF]/20 blur-lg transition-all duration-300 pointer-events-none" />
+
+            {/* Dark Mode Official Logo */}
+            <img
+              src="/logo.png"
+              alt="KORE — Operations, Simplified"
+              className="h-9 sm:h-10 w-auto object-contain hidden dark:block transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_18px_rgba(47,143,255,0.45)]"
+            />
+
+            {/* Light Mode Official Logo */}
+            <img
+              src="/logo-light-mode.png"
+              alt="KORE — Operations, Simplified"
+              className="h-9 sm:h-10 w-auto object-contain block dark:hidden transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_18px_rgba(47,143,255,0.25)]"
+            />
           </Link>
 
           {/* Desktop Navigation */}

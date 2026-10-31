@@ -17,13 +17,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-12 border-b border-white/5">
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#1a6cd4] to-[#2F8FFF] flex items-center justify-center font-black text-white text-base">
-                K
-              </div>
-              <span className="font-black text-2xl tracking-tight text-white">
-                KORE<span className="text-[#2F8FFF]">.</span>
-              </span>
+            <div className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="KORE — Operations, Simplified"
+                className="h-10 sm:h-11 w-auto object-contain"
+              />
             </div>
 
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
