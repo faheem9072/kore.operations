@@ -3,14 +3,14 @@
 import React from 'react';
 
 const marqueeItems = [
+  'COMMERCIAL VIDEOGRAPHY',
   'DIGITAL MARKETING',
-  'BUSINESS CONSULTANCY',
   'AGENTIC AI WORKFLOWS',
+  'BUSINESS CONSULTANCY',
   'CUSTOM MCP SERVERS',
   'BRAND IDENTITY',
   'NEXT.JS WEB APPS & ERP',
-  'PERFORMANCE AD CAMPAIGNS',
-  'OPERATIONS STRATEGY',
+  'AD FILMS & PRODUCT REELS',
 ];
 
 export default function Marquee() {

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Bot, TrendingUp, Compass } from 'lucide-react';
+import { CheckCircle2, Bot, Video, Compass } from 'lucide-react';
 
 export default function WhoWeAre() {
   const highlights = [
@@ -12,9 +12,9 @@ export default function WhoWeAre() {
       desc: 'Autonomous multi-agent workflows and custom MCP servers for enterprise automation.',
     },
     {
-      icon: <TrendingUp className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Digital Marketing',
-      desc: 'High-conversion Meta & Google ad campaigns, creative posters, and growth funnels.',
+      icon: <Video className="w-5 h-5 text-[#2F8FFF]" />,
+      title: 'Videography & Marketing',
+      desc: 'Commercial ad films, product shoots, Meta campaigns, and high-conversion reels.',
     },
     {
       icon: <Compass className="w-5 h-5 text-[#2F8FFF]" />,
@@ -44,12 +44,12 @@ export default function WhoWeAre() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
-              Digital Marketing, Business Consultancy &amp;{' '}
+              Videography, Digital Marketing &amp;{' '}
               <span className="text-[#2F8FFF]">Agentic AI.</span>
             </h2>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Based in <strong>Chelembra, Kerala</strong>, <strong>KORE</strong> helps businesses scale through high-conversion digital marketing, strategic business consultancy, autonomous agentic workflows, custom MCP servers, and modern web platforms.
+              Based in <strong>Chelembra, Kerala</strong>, <strong>KORE</strong> helps businesses scale through commercial videography, high-conversion digital marketing, strategic business consultancy, autonomous agentic workflows, and modern web platforms.
             </p>
 
             {/* Feature Highlights */}
@@ -97,8 +97,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Digital Marketing &amp; Growth Campaigns</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Performance Meta &amp; Google ad campaigns, high-impact creatives, and conversion funnels.</p>
+                    <h4 className="text-sm font-bold text-white">Commercial Videography &amp; Production</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Ad films, product shoots, corporate brand stories, and high-impact viral reels.</p>
                   </div>
                 </div>
 
@@ -107,8 +107,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Business Consultancy &amp; Strategy</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Operational audits, digital transformation roadmaps, tech stack selection, and scaling advisory.</p>
+                    <h4 className="text-sm font-bold text-white">Digital Marketing &amp; Business Strategy</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Performance Meta &amp; Google ad campaigns, operations audits, and scaling roadmaps.</p>
                   </div>
                 </div>
 

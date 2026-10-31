@@ -53,12 +53,26 @@ export default function Services({ onSelectCategory }: ServicesProps) {
       ],
     },
     {
+      key: 'videography',
+      category: 'social',
+      num: '03',
+      title: 'VIDEOGRAPHY & PRODUCTION',
+      subtitle: 'Commercial Ad Films, Brand Stories & Reels',
+      color: '#60a5fa',
+      deliverables: [
+        'Commercial Ad Films & Shoots',
+        'Product & Corporate Videography',
+        'High-Impact Social Media Reels',
+        'Color Grading & Audio Post-Production',
+      ],
+    },
+    {
       key: 'consultancy',
       category: 'web',
-      num: '03',
+      num: '04',
       title: 'BUSINESS CONSULTANCY',
       subtitle: 'Operations Audits, Digital Strategy & Scaling',
-      color: '#60a5fa',
+      color: '#818cf8',
       deliverables: [
         'Operations Sprints & Audits',
         'Workflow Optimization & Automation',
@@ -69,10 +83,10 @@ export default function Services({ onSelectCategory }: ServicesProps) {
     {
       key: 'web',
       category: 'web',
-      num: '04',
+      num: '05',
       title: 'WEB APPS & ERP',
       subtitle: 'Custom Next.js Systems & Cloud Portals',
-      color: '#818cf8',
+      color: '#bae6fd',
       deliverables: [
         'Academic & Business ERPs',
         'Live Fleet Web Apps',
@@ -83,10 +97,10 @@ export default function Services({ onSelectCategory }: ServicesProps) {
     {
       key: 'design',
       category: 'design',
-      num: '05',
+      num: '06',
       title: 'BRAND IDENTITY',
       subtitle: 'Logo Systems & Visual Strategy',
-      color: '#bae6fd',
+      color: '#c7d2fe',
       deliverables: [
         'Logo & Monogram Design',
         'Brand Guidelines & Books',
