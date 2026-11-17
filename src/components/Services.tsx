@@ -21,16 +21,44 @@ interface ServiceTab {
 
 export default function Services({ onSelectCategory }: ServicesProps) {
   // Default active service
-  const [activeServiceKey, setActiveServiceKey] = useState<string>('agentic');
+  const [activeServiceKey, setActiveServiceKey] = useState<string>('web-dev');
 
   const servicesData: ServiceTab[] = [
     {
-      key: 'agentic',
+      key: 'web-dev',
       category: 'web',
       num: '01',
+      title: 'WEB DEVELOPMENT',
+      subtitle: 'Custom Next.js Web Platforms & High-Speed Portals',
+      color: '#2F8FFF',
+      deliverables: [
+        'Custom Next.js Web Applications',
+        'E-Commerce Portals & Flagships',
+        'Responsive Modern UI/UX Design',
+        'Full-Stack Cloud Architectures',
+      ],
+    },
+    {
+      key: 'erp-systems',
+      category: 'web',
+      num: '02',
+      title: 'ERP SYSTEMS',
+      subtitle: 'Academic, Fleet & Enterprise Cloud Portals',
+      color: '#38bdf8',
+      deliverables: [
+        'School Management ERPs (DISE)',
+        'Live Fleet & Logistics Web Apps',
+        'Role-Based Access Control (RBAC)',
+        'Business Operations Dashboards',
+      ],
+    },
+    {
+      key: 'agentic',
+      category: 'web',
+      num: '03',
       title: 'AGENTIC AI & MCP',
       subtitle: 'Autonomous Workflows & Custom MCP Servers',
-      color: '#2F8FFF',
+      color: '#60a5fa',
       deliverables: [
         'Agentic AI Workflows',
         'Custom Model Context Protocol (MCP) Servers',
@@ -41,10 +69,10 @@ export default function Services({ onSelectCategory }: ServicesProps) {
     {
       key: 'digital-marketing',
       category: 'social',
-      num: '02',
+      num: '04',
       title: 'DIGITAL MARKETING',
       subtitle: 'Growth Campaigns, Meta Ads & Performance Marketing',
-      color: '#38bdf8',
+      color: '#818cf8',
       deliverables: [
         'Meta & Google Ad Campaigns',
         'Social Media Growth Strategy',
@@ -55,43 +83,15 @@ export default function Services({ onSelectCategory }: ServicesProps) {
     {
       key: 'videography',
       category: 'social',
-      num: '03',
+      num: '05',
       title: 'VIDEOGRAPHY & PRODUCTION',
       subtitle: 'Commercial Ad Films, Brand Stories & Reels',
-      color: '#60a5fa',
+      color: '#bae6fd',
       deliverables: [
         'Commercial Ad Films & Shoots',
         'Product & Corporate Videography',
         'High-Impact Social Media Reels',
         'Color Grading & Audio Post-Production',
-      ],
-    },
-    {
-      key: 'consultancy',
-      category: 'web',
-      num: '04',
-      title: 'BUSINESS CONSULTANCY',
-      subtitle: 'Operations Audits, Digital Strategy & Scaling',
-      color: '#818cf8',
-      deliverables: [
-        'Operations Sprints & Audits',
-        'Workflow Optimization & Automation',
-        'Tech Stack & Cloud Advisory',
-        'Go-to-Market Growth Strategy',
-      ],
-    },
-    {
-      key: 'web',
-      category: 'web',
-      num: '05',
-      title: 'WEB APPS & ERP',
-      subtitle: 'Custom Next.js Systems & Cloud Portals',
-      color: '#bae6fd',
-      deliverables: [
-        'Academic & Business ERPs',
-        'Live Fleet Web Apps',
-        'E-Commerce Portals',
-        'Responsive UI/UX Systems',
       ],
     },
     {

@@ -18,13 +18,13 @@ export default function Hero({ onSelectCategory }: HeroProps) {
   };
 
   const servicePills = [
-    { label: 'AGENTIC WORKFLOWS', category: 'web' as ProjectCategory, dotColor: '#2F8FFF' },
+    { label: 'WEB DEVELOPMENT', category: 'web' as ProjectCategory, dotColor: '#2F8FFF' },
+    { label: 'ERP SYSTEMS', category: 'web' as ProjectCategory, dotColor: '#38bdf8' },
+    { label: 'AGENTIC WORKFLOWS', category: 'web' as ProjectCategory, dotColor: '#60a5fa' },
+    { label: 'CUSTOM MCP SERVERS', category: 'web' as ProjectCategory, dotColor: '#818cf8' },
+    { label: 'DIGITAL MARKETING', category: 'social' as ProjectCategory, dotColor: '#bae6fd' },
     { label: 'VIDEOGRAPHY & PRODUCTION', category: 'social' as ProjectCategory, dotColor: '#38bdf8' },
-    { label: 'DIGITAL MARKETING', category: 'social' as ProjectCategory, dotColor: '#60a5fa' },
-    { label: 'BUSINESS CONSULTANCY', category: 'web' as ProjectCategory, dotColor: '#818cf8' },
-    { label: 'CUSTOM MCP SERVERS', category: 'web' as ProjectCategory, dotColor: '#bae6fd' },
-    { label: 'WEB APPS & ERP', category: 'web' as ProjectCategory, dotColor: '#38bdf8' },
-    { label: 'BRAND IDENTITY', category: 'design' as ProjectCategory, dotColor: '#a5b4fc' },
+    { label: 'BRAND IDENTITY', category: 'design' as ProjectCategory, dotColor: '#c7d2fe' },
   ];
 
   const handlePillClick = (cat: ProjectCategory) => {
@@ -103,7 +103,7 @@ export default function Hero({ onSelectCategory }: HeroProps) {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="max-w-xl text-sm sm:text-base text-slate-300 font-normal leading-relaxed"
             >
-              We combine agentic AI workflows, commercial videography, digital marketing, business consultancy, and modern web platforms to scale operations.
+              We engineer high-performance web applications, custom cloud ERPs, agentic AI workflows, and high-impact digital marketing to scale operations.
             </motion.p>
 
             {/* CTA Pill Buttons matching Reference */}

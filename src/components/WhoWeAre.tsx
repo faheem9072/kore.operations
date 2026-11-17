@@ -2,10 +2,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Bot, Video, Compass } from 'lucide-react';
+import { CheckCircle2, Bot, Video, Globe2 } from 'lucide-react';
 
 export default function WhoWeAre() {
   const highlights = [
+    {
+      icon: <Globe2 className="w-5 h-5 text-[#2F8FFF]" />,
+      title: 'Web Development & ERP',
+      desc: 'Next.js web apps, school management systems, and real-time fleet tracking portals.',
+    },
     {
       icon: <Bot className="w-5 h-5 text-[#2F8FFF]" />,
       title: 'Agentic AI & MCP',
@@ -15,11 +20,6 @@ export default function WhoWeAre() {
       icon: <Video className="w-5 h-5 text-[#2F8FFF]" />,
       title: 'Videography & Marketing',
       desc: 'Commercial ad films, product shoots, Meta campaigns, and high-conversion reels.',
-    },
-    {
-      icon: <Compass className="w-5 h-5 text-[#2F8FFF]" />,
-      title: 'Business Consultancy',
-      desc: 'Operations audits, digital transformation roadmaps, and scalable tech advisory.',
     },
   ];
 
@@ -44,12 +44,12 @@ export default function WhoWeAre() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
-              Videography, Digital Marketing &amp;{' '}
+              Web Development, Custom ERPs &amp;{' '}
               <span className="text-[#2F8FFF]">Agentic AI.</span>
             </h2>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Based in <strong>Chelembra, Kerala</strong>, <strong>KORE</strong> helps businesses scale through commercial videography, high-conversion digital marketing, strategic business consultancy, autonomous agentic workflows, and modern web platforms.
+              Based in <strong>Chelembra, Kerala</strong>, <strong>KORE</strong> specializes in high-speed web development, custom cloud ERP systems, autonomous agentic AI workflows, performance digital marketing, and commercial videography.
             </p>
 
             {/* Feature Highlights */}
@@ -97,8 +97,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Commercial Videography &amp; Production</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Ad films, product shoots, corporate brand stories, and high-impact viral reels.</p>
+                    <h4 className="text-sm font-bold text-white">Custom Web Development &amp; Portals</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">High-speed Next.js web applications, e-commerce flagships, and modern responsive UI/UX systems.</p>
                   </div>
                 </div>
 
@@ -107,8 +107,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Digital Marketing &amp; Business Strategy</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Performance Meta &amp; Google ad campaigns, operations audits, and scaling roadmaps.</p>
+                    <h4 className="text-sm font-bold text-white">Dedicated Cloud ERP Systems</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Academic ERPs (DISE), real-time logistics &amp; fleet portals, and business management software.</p>
                   </div>
                 </div>
 
@@ -117,8 +117,8 @@ export default function WhoWeAre() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2F8FFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Agentic AI &amp; Web Platforms</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Self-operating agent workflows, custom MCP servers, and fast Next.js applications.</p>
+                    <h4 className="text-sm font-bold text-white">Agentic AI &amp; Media Production</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Autonomous task pipelines, custom MCP servers, commercial videography, and growth ads.</p>
                   </div>
                 </div>
               </div>
